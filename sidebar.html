@@ -1,0 +1,86 @@
+{if !empty($filters)}  
+<section id="layered_block_left" class="block column_box">
+    <h3 class="toggle"><span>Подбор по параметрам</span></h3>
+    <div class="block_content filters{if !empty($theme_settings.ajax_filters)} ajax{/if}">
+        <form method="get" action="{$wa->currentUrl()}" id="layered_form">
+            {foreach $filters as $fid => $filter}
+
+            <div class="titled_box">
+                {if $fid == 'price'}
+                {$c = $wa->shop->currency(true)}
+                <h2 class="clearfix">
+                    <span class="layered_subtitle">[`Price`]</span>
+                    <span class="layered_close"><a rel="ul_layered_{$fid}" href="#"><i class="icon-minus-sign"></i></a></span>
+                </h2>
+
+                <ul id="ul_layered_{$fid}" class="store_list_filter ul_filter clearfix">
+                    <li class="nomargin row">
+                        <div class="form-group clearfix col-xs-6 col-sm-12">
+                            <label class="col-xs-2 control-label">[`from`]</label>
+                            <div class="col-xs-9">
+                                <input placeholder="0" name="price_min" class="layered_weight_range layered_input_range_min layered_input_range form-control" id="layered_weight_range_min" type="text" {if $wa->get('price_min')}value="{(int)$wa->get('price_min')}"{/if}/>
+                            </div>
+                            <span class="layered_weight_range_unit col-xs-1 control-label">{$c.sign}</span>
+                        </div>
+                        <div class="form-group clearfix col-xs-6 col-sm-12">
+                            <label class="col-xs-2 control-label">[`to`]</label>
+                            <div class="col-xs-9">
+                                <input placeholder="&infin;" name="price_max" class="layered_weight_range layered_input_range_max layered_input_range form-control" id="layered_weight_range_max" type="text" {if $wa->get('price_max')}value="{(int)$wa->get('price_max')}"{/if}/>
+                            </div>
+                            <span class="layered_weight_range_unit col-xs-1 control-label">{$c.sign}</span>
+                        </div>
+                    </li>
+                </ul>
+
+                {else}
+
+                <h2 class="clearfix">
+                    <span class="layered_subtitle">{$filter.name|escape}</span>
+                    <span class="layered_close"><a rel="ul_layered_{$fid}" href="#"><i class="icon-minus-sign"></i></a></span>
+                </h2>
+
+
+                {if $filter.type == 'boolean'}
+                <label><input class="radio" type="radio" name="{$filter.code}"{if $wa->get($filter.code)} checked{/if} value="1"> [`Yes`]</label><br>
+                <label><input class="radio" type="radio" name="{$filter.code}"{if $wa->get($filter.code) === '0'} checked{/if} value="0"> [`No`]</label><br>
+                <label><input class="radio" type="radio" name="{$filter.code}"{if $wa->get($filter.code, '') === ''} checked{/if} value=""> [`Any`]</label><br>
+                {else}
+                <ul id="ul_layered_{$fid}" class="store_list_filter ul_filter clearfix">
+                    {foreach $filter.values as $v_id => $v}
+                    <li class="nomargin hiddable  clearfix">
+                        <input type="checkbox" class="checkbox" name="{$filter.code}[]" {if in_array($v_id, (array)$wa->get($filter.code, array()))}checked{/if} value="{$v_id}"/> 
+                               <label>{$v}</label>
+                    </li>                    
+                    {/foreach}
+                </ul>
+                {/if}
+
+                {/if}
+            </div>
+            {/foreach}
+            {if $wa->get('sort')}<input type="hidden" name="sort" value="{$wa->get('sort')|escape}">{/if}
+            {if $wa->get('order')}<input type="hidden" name="order" value="{$wa->get('order')|escape}">{/if}
+            <input class="btn btn-default button_large" type="submit" value="[`Filter products`]">
+        </form>
+    </div>
+
+</section>
+{/if} 
+
+
+{if $cloud = $wa->shop->tags()}
+<section id="tags_block_left" class="block tags_block column_box">
+    <h4><span>Тэги</span><i class="column_icon_toggle icon-plus-sign"></i></h4>
+    <p class="block_content toggle_content">
+        {foreach $cloud as $tag}
+        <a href="{$wa_app_url}tag/{$tag.uri_name}/" style="font-size: {$tag.size}%; opacity: {$tag.opacity}">{$tag.name|escape}</a>
+        {/foreach}
+    </p>
+</section>
+{/if}
+
+{if isset($frontend_nav)}
+<!-- plugin hook: 'frontend_nav' -->
+{* @event frontend_nav.%plugin_id% *}
+{foreach $frontend_nav as $_}{$_}{/foreach}
+{/if}
