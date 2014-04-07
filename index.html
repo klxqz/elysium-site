@@ -22,13 +22,18 @@
             <!-- js -->
             <script type="text/javascript" src="{$wa_url}wa-content/js/jquery/jquery-1.8.2.min.js"></script>
 
-            <!--<script src="{$wa_theme_url}script.js" ></script>
-            -->
+            <script src="{$wa_theme_url}script.js" ></script>
+            
             <script type="text/javascript" src="{$wa_theme_url}custom.js?v{$wa_theme_version}"></script>    
             {if $wa->isMobile()}
             <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=0;" />
             {/if}
             {$wa->js()} {* links active plugins JS *}
+
+
+            <link href="http://livedemo00.template-help.com/prestashop_47744/themes/theme852/cache/9e74844ce83386a03e775edb38d8bec2_all.css" rel="stylesheet" type="text/css" media="all" />
+
+
 
 
             <link href="{$wa_theme_url}bootstrap.min.css"  rel="stylesheet" type="text/css" media="all"/>
@@ -46,6 +51,14 @@
             <script src="{$wa_theme_url}jquery.mousewheel.js" ></script>
             <script src="{$wa_theme_url}jquery.carouFredSel-6.2.1.js" ></script>
             <script src="{$wa_theme_url}jquery.touchSwipe.min.js" ></script>
+            
+            
+            
+            
+            
+            
+            
+            
 
 
             {include file="`$wa_active_theme_path`/head.html" inline}
@@ -227,7 +240,7 @@
                                     <a href="{$wa->shop->productUrl($item.product)}" class="cart_block_product_name product_link">
                                         {$item.name|escape}
                                     </a>           
-                                    
+
                                     <span class="price">
                                         {wa_currency_html($item.price,$wa->shop->currency())}								
                                     </span>
@@ -247,134 +260,134 @@
                             <p id="cart-buttons" class="">
                                 <a href="{$wa->getUrl('shop/frontend/cart')}"  class="button_mini btn btn-default" title="Посмотреть корзину" rel="nofollow">Корзина</a> 
                                 <br><br>
-                                <a href="{$wa->getUrl('shop/frontend/checkout')}"  id="button_order_cart" class="exclusive btn btn-default" title="Оформление заказа" rel="nofollow">Оформление заказа</a>
-                            </p>
-                        </div>
-                    </div>
-                </section>
-            </div>
-            <div class="menu_wrapper">
-                <div class="container">
-                    <div id="menu-wrap" class="clearfix desktop">
-                        <div id="menu-trigger">Категории<i class="menu-icon icon-plus-sign-alt"></i></div>
+                                        <a href="{$wa->getUrl('shop/frontend/checkout')}"  id="button_order_cart" class="exclusive btn btn-default" title="Оформление заказа" rel="nofollow">Оформление заказа</a>
+                                        </p>
+                                        </div>
+                                        </div>
+                                        </section>
+                                        </div>
+                                        <div class="menu_wrapper">
+                                            <div class="container">
+                                                <div id="menu-wrap" class="clearfix desktop">
+                                                    <div id="menu-trigger">Категории<i class="menu-icon icon-plus-sign-alt"></i></div>
 
 
-                        {if isset($category)}{$selected_category=$category.id}{else}{$selected_category=null}{/if}
-                        {$categories = $wa->shop->categories(0, null, true)}
-                        {if $categories}
+                                                    {if isset($category)}{$selected_category=$category.id}{else}{$selected_category=null}{/if}
+                                                    {$categories = $wa->shop->categories(0, null, true)}
+                                                    {if $categories}
 
-                        {wa_print_tree tree=$categories attrs = 'id="menu-custom"' selected=$selected_category unfolded=true collapsible_class='parent'  elem ='<a href=":url" title=":name">:name</a>'}
+                                                    {wa_print_tree tree=$categories attrs = 'id="menu-custom"' selected=$selected_category unfolded=true collapsible_class='parent'  elem ='<a href=":url" title=":name">:name</a>'}
 
-                        {/if}
-
-
-                    </div>
-                </div>
-                <script type="text/javascript">
-                    $(document).ready(function() {
-                        $('#menu-custom li:has(ul)').addClass('hasSub');
-                    });
-                </script>
-            </div>
-        </header>
-    </div>
-    <div class="page_wrapper_2 clearfix">
-        <div id="columns" class="container">
-            <div class="row">
-
-                <!-- navigation breadcrumbs -->
-                {if isset($breadcrumbs)}                    
-                <div class="breadcrumb">
-                    <div class="breadcrumb_inset">
-                        <a href="{$wa_app_url}" class="breadcrumb-home"><i class="icon-home"></i></a>
-                        {if $breadcrumbs}
-                        {foreach $breadcrumbs as $breadcrumb}
-                        <span class="navigation-pipe">»</span> 
-                        <a href="{$breadcrumb.url}">{$breadcrumb.name|escape}</a>
-                        {/foreach}
-                        {else} » {/if}
-
-                    </div>
-                </div>
-                {/if}
-
-                <div id="left_column" class="col-xs-12 col-sm-3 column">
-                    {include file="sidebar.html" inline}
-                </div>
-
-                <div id="center_column" class="center_column col-xs-12 col-sm-9 clearfix">
-                    {include file="`$wa_active_theme_path`/content.html" inline}
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="page_wrapper_3 clearfix">
-        <footer id="footer" class="container">
-            <div class="row modules">
-
-                <section class="col-sm-3 block block_category_footer">
-                    <h4>Категории<i class="icon-plus-sign"></i></h4>
-                    <!-- category tree -->
-                    {if isset($category)}{$selected_category=$category.id}{else}{$selected_category=null}{/if}
-                    {wa_print_tree tree=$wa->shop->categories(0, 0, true) selected=$selected_category unfolded=false class="toggle_content list-footer tree dhtml" elem ='<a href=":url" title=":name">:name</a>'}
-                </section>
+                                                    {/if}
 
 
-                <section class="block blockcms_footer col-sm-3">
-                    <h4 class="toggle">Информация<i class="icon-plus-sign"></i></h4>
-                    <ul class="list-footer toggle_content clearfix">
-                        {foreach $wa->shop->pages() as $page}
-                        <li><a href="{$page.url}" >{$page.name}</a></li>
-                        {/foreach}
-                    </ul>
-                </section>
-                <section class="bottom_footer">
-                    &copy; {time()|wa_datetime:"Y"}
-                    <a href="{$wa_url}">{$wa->accountName()}</a>
-                </section>  
+                                                </div>
+                                            </div>
+                                            <script type="text/javascript">
+                                                $(document).ready(function() {
+                                                    $('#menu-custom li:has(ul)').addClass('hasSub');
+                                                });
+                                            </script>
+                                        </div>
+                                        </header>
+                                        </div>
+                                        <div class="page_wrapper_2 clearfix">
+                                            <div id="columns" class="container">
+                                                <div class="row">
 
-                <section class="block blockmyaccountfooter col-sm-3">
-                    <h4>Моя учетная запись<i class="icon-plus-sign"></i></h4>
-                    <ul class="list-footer toggle_content clearfix">
-                        {if $wa->getUrl('shop/frontend/my')}<li><a href="{$wa->getUrl('shop/frontend/my')}">[s`My account`]</a></li>{/if}
-                        {if $wa->getUrl('shop/frontend/my/myOrders')}<li><a href="{$wa->getUrl('shop/frontend/myOrders')}" >Мои заказы</a></li>{/if}
-                        {if shopAffiliate::isEnabled()}<li><a href="{$wa->getUrl('/frontend/myAffiliate')}">[`Affiliate program`]</a></li>{/if}
-                    </ul>
-                </section>
+                                                    <!-- navigation breadcrumbs -->
+                                                    {if isset($breadcrumbs)}                    
+                                                    <div class="breadcrumb">
+                                                        <div class="breadcrumb_inset">
+                                                            <a href="{$wa_app_url}" class="breadcrumb-home"><i class="icon-home"></i></a>
+                                                            {if $breadcrumbs}
+                                                            {foreach $breadcrumbs as $breadcrumb}
+                                                            <span class="navigation-pipe">»</span> 
+                                                            <a href="{$breadcrumb.url}">{$breadcrumb.name|escape}</a>
+                                                            {/foreach}
+                                                            {else} » {/if}
 
-                <div id="htmlcontent_footer">
-                    <ul class="htmlcontent-home clearfix">
-                        {if $wa->shop->settings('phone')}
-                        <li class="htmlcontent-item">
-                            <div class="item-html">
-                                <h3>Tel: {$wa->shop->settings('phone')}</h3>
-                            </div>
-                        </li>
-                        {/if}
-                    </ul>
-                </div>
-                <section class="blocksocial">
+                                                        </div>
+                                                    </div>
+                                                    {/if}
 
-                    <ul>
-                        <li class="facebook"><a href="#" ><i class="icon-facebook"></i></a></li> 
-                        <li class="twitter"><a href="#" ><i class="icon-twitter"></i></a></li> 
-                        {if $wa->blog}
-                        <!-- subscription links -->
-                        {$rss = $wa->blog->rssUrl()}
-                        {if $rss}
-                        <li class="rss"><a href="{$rss}" title="[s`Subscribe`]"><i class="icon-rss"></i></a></li> 
-                        {/if}
-                        {/if}
+                                                    <div id="left_column" class="col-xs-12 col-sm-3 column">
+                                                        {include file="sidebar.html" inline}
+                                                    </div>
+
+                                                    <div id="center_column" class="center_column col-xs-12 col-sm-9 clearfix">
+                                                        {include file="`$wa_active_theme_path`/content.html" inline}
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="page_wrapper_3 clearfix">
+                                            <footer id="footer" class="container">
+                                                <div class="row modules">
+
+                                                    <section class="col-sm-3 block block_category_footer">
+                                                        <h4>Категории<i class="icon-plus-sign"></i></h4>
+                                                        <!-- category tree -->
+                                                        {if isset($category)}{$selected_category=$category.id}{else}{$selected_category=null}{/if}
+                                                        {wa_print_tree tree=$wa->shop->categories(0, 0, true) selected=$selected_category unfolded=false class="toggle_content list-footer tree dhtml" elem ='<a href=":url" title=":name">:name</a>'}
+                                                    </section>
 
 
-                    </ul>
+                                                    <section class="block blockcms_footer col-sm-3">
+                                                        <h4 class="toggle">Информация<i class="icon-plus-sign"></i></h4>
+                                                        <ul class="list-footer toggle_content clearfix">
+                                                            {foreach $wa->shop->pages() as $page}
+                                                            <li><a href="{$page.url}" >{$page.name}</a></li>
+                                                            {/foreach}
+                                                        </ul>
+                                                    </section>
+                                                    <section class="bottom_footer">
+                                                        &copy; {time()|wa_datetime:"Y"}
+                                                        <a href="{$wa_url}">{$wa->accountName()}</a>
+                                                    </section>  
+
+                                                    <section class="block blockmyaccountfooter col-sm-3">
+                                                        <h4>Моя учетная запись<i class="icon-plus-sign"></i></h4>
+                                                        <ul class="list-footer toggle_content clearfix">
+                                                            {if $wa->getUrl('shop/frontend/my')}<li><a href="{$wa->getUrl('shop/frontend/my')}">[s`My account`]</a></li>{/if}
+                                                            {if $wa->getUrl('shop/frontend/my/myOrders')}<li><a href="{$wa->getUrl('shop/frontend/myOrders')}" >Мои заказы</a></li>{/if}
+                                                            {if shopAffiliate::isEnabled()}<li><a href="{$wa->getUrl('/frontend/myAffiliate')}">[`Affiliate program`]</a></li>{/if}
+                                                        </ul>
+                                                    </section>
+
+                                                    <div id="htmlcontent_footer">
+                                                        <ul class="htmlcontent-home clearfix">
+                                                            {if $wa->shop->settings('phone')}
+                                                            <li class="htmlcontent-item">
+                                                                <div class="item-html">
+                                                                    <h3>Tel: {$wa->shop->settings('phone')}</h3>
+                                                                </div>
+                                                            </li>
+                                                            {/if}
+                                                        </ul>
+                                                    </div>
+                                                    <section class="blocksocial">
+
+                                                        <ul>
+                                                            <li class="facebook"><a href="#" ><i class="icon-facebook"></i></a></li> 
+                                                            <li class="twitter"><a href="#" ><i class="icon-twitter"></i></a></li> 
+                                                            {if $wa->blog}
+                                                            <!-- subscription links -->
+                                                            {$rss = $wa->blog->rssUrl()}
+                                                            {if $rss}
+                                                            <li class="rss"><a href="{$rss}" title="[s`Subscribe`]"><i class="icon-rss"></i></a></li> 
+                                                            {/if}
+                                                            {/if}
 
 
-                </section>
-            </div>
-        </footer>
-    </div>
-</body>
-</html>
+                                                        </ul>
+
+
+                                                    </section>
+                                                </div>
+                                            </footer>
+                                        </div>
+                                        </body>
+                                        </html>
