@@ -4,11 +4,12 @@ $(document).ready(function () {
         e.preventDefault();
         fieldName = $(this).attr('rel');
         var currentVal = parseInt($('input[name=' + fieldName + ']').val());
-        if (quantityAvailable > 0) {
+        /*if (quantityAvailable > 0) {
             quantityAvailableT = quantityAvailable;
         } else {
             quantityAvailableT = 100000000;
-        }
+        }*/
+        quantityAvailableT = 100000000;
         if (!isNaN(currentVal) && currentVal < quantityAvailableT) {
             $('input[name=' + fieldName + ']').val(currentVal + 1).trigger('keyup');
         } else {

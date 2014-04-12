@@ -73,7 +73,7 @@
     <h4><span>Тэги</span><i class="column_icon_toggle icon-plus-sign"></i></h4>
     <p class="block_content toggle_content">
         {foreach $cloud as $tag}
-        <a href="{$wa_app_url}tag/{$tag.uri_name}/" style="font-size: {$tag.size}%; opacity: {$tag.opacity}">{$tag.name|escape}</a>
+        <a href="{$wa->getUrl('shop/frontend/tag',['tag' => $tag.uri_name])}" style="font-size: {$tag.size}%; opacity: {$tag.opacity}">{$tag.name|escape}</a>
         {/foreach}
     </p>
 </section>

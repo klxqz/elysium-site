@@ -23,16 +23,16 @@
             <script type="text/javascript" src="{$wa_url}wa-content/js/jquery/jquery-1.8.2.min.js"></script>
 
             <script src="{$wa_theme_url}script.js" ></script>
-            
+
             <script type="text/javascript" src="{$wa_theme_url}custom.js?v{$wa_theme_version}"></script>    
             {if $wa->isMobile()}
             <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=0;" />
             {/if}
             {$wa->js()} {* links active plugins JS *}
 
-
+            {*
             <link href="http://livedemo00.template-help.com/prestashop_47744/themes/theme852/cache/9e74844ce83386a03e775edb38d8bec2_all.css" rel="stylesheet" type="text/css" media="all" />
-
+            *}
 
 
 
@@ -51,14 +51,14 @@
             <script src="{$wa_theme_url}jquery.mousewheel.js" ></script>
             <script src="{$wa_theme_url}jquery.carouFredSel-6.2.1.js" ></script>
             <script src="{$wa_theme_url}jquery.touchSwipe.min.js" ></script>
-            
-            
-            
-            
-            
-            
-            
-            
+
+
+
+
+
+
+
+
 
 
             {include file="`$wa_active_theme_path`/head.html" inline}
@@ -200,7 +200,7 @@
                 <section id="header_user" class=" blockuserinfo-cart header-box ">
                     <div id="shopping_cart">
                         <a href="#"  title="Просмотреть мою корзину" rel="nofollow">
-                            <span class="shopping_cart_title">Корзина:</span>
+                            <span class="shopping_cart_title">[s`Shopping cart`]:</span>
                             {if $cart_count}
                             <span class="cart-total ajax_cart_quantity">товаров: {$cart_count}</span>
                             {else}
@@ -213,7 +213,7 @@
 
 
                 <section id="cart_block" class="block column_box exclusive">
-                    <h4><span>Корзина</span><i class="column_icon_toggle icon-plus-sign"></i></h4>
+                    <h4><span>[s`Shopping cart`]</span><i class="column_icon_toggle icon-plus-sign"></i></h4>
                     <div class="block_content toggle_content">
 
                         <div id="cart_block_summary" class="collapsed">
