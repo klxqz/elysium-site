@@ -138,7 +138,7 @@ sup
 }
 .page_wrapper_1
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/bg-main.jpg) left top repeat-x white;
+    background: url(img/bg-main.jpg) left top repeat-x white;
     position: relative;
     z-index: 2;
 }
@@ -181,6 +181,15 @@ h1 strong a
 {
     color: #777;
 }
+
+
+input[type="submit"]{display:inline-block;margin-bottom:0;font-weight:400;text-align:center;vertical-align:middle;cursor:pointer;background-image:none;border:1px solid transparent;white-space:nowrap;padding:6px 12px;font-size:14px;line-height:1.42857143;border-radius:4px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+input[type="submit"]:focus,input[type="submit"]:active:focus,input[type="submit"]active:focus{outline:thin dotted;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px}
+input[type="submit"]:hover,input[type="submit"]:focus{color:#333;text-decoration:none}
+input[type="submit"]:active,input[type="submit"].active{outline:0;background-image:none;-webkit-box-shadow:inset 0 3px 5px rgba(0,0,0,.125);box-shadow:inset 0 3px 5px rgba(0,0,0,.125)}
+input[type="submit"].disabled,input[type="submit"][disabled],fieldset[disabled] input[type="submit"]{cursor:not-allowed;pointer-events:none;opacity:.65;filter:alpha(opacity=65);-webkit-box-shadow:none;box-shadow:none}
+
+
 .notification
 {
     border-radius: 4px;
@@ -202,7 +211,7 @@ h1 strong a
 .notification_warning
 {
     background-color: #FFEAA8;
-    background-image: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/error.png);
+    background-image: url(img/error.png);
     background-position: 15px center;
     background-repeat: no-repeat;
     border: 2px solid #FFC237;
@@ -300,7 +309,7 @@ p.warning i
 }
 .alert-error,div.error
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/warning.png) 20px center no-repeat #fde4e1;
+    background: url(img/warning.png) 20px center no-repeat #fde4e1;
     border: 1px solid #ebbcb5;
     color: #df0505;
     font-size: 12px;
@@ -409,7 +418,6 @@ a.cus-suport:hover
 .center_column .rte ul
 {
     list-style: none;
-    margin: -15px 0 -3px 0;
     padding: 0 0 0 0;
 }
 #center_column .block-cms .title_block
@@ -524,7 +532,7 @@ a.btn_add_cart:hover, input[type="submit"]:hover
 }
 form
 {
-    margin: 0 0 20px 0;
+    margin: 0;
     padding: 0;
 }
 select,textarea
@@ -1192,6 +1200,13 @@ form.pagination
     top: 74px;
     z-index: 99;
 }
+
+
+#header_user.fixed{
+    position: fixed;
+    top: 0px;
+}
+
 #header_user #shopping_cart a
 {
     background: linear-gradient(to bottom,#ffffff 0,#f9f9f9 100%);
@@ -1425,7 +1440,7 @@ form.pagination
 }
 .column .block
 {
-    margin: 0 0 0 0;
+    margin: 0 0 20px 0;
 }
 h1,.column .block h4,.center_column .block h4,#layered_block_left h3
 {
@@ -1459,7 +1474,7 @@ h1 a,.column .block h4 a,.center_column .block h4 a,#layered_block_left h3 a
 }
 h1:after,.column .block h4:after,.center_column .block h4:after,#layered_block_left h3:after
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/heading-shadow.png) repeat-x;
+    background: url(img/heading-shadow.png) repeat-x;
     bottom: -16px;
     content: ".";
     height: 16px;
@@ -1617,7 +1632,7 @@ h1#instant_search_results a:hover
 }
 #categories_block_left .CLOSE
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/plus_minus.png) 0 0 no-repeat;
+    background: url(img/plus_minus.png) 0 0 no-repeat;
 }
 #layered_block_left ul li .disabled
 {
@@ -1750,7 +1765,7 @@ h1#instant_search_results a:hover
 }
 #enabled_filters h2
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/line-bg.gif) repeat-x left 20px;
+    background: url(img/line-bg.gif) repeat-x left 20px;
     color: #333;
     font-style: italic;
     padding: 13px 0 10px 0;
@@ -1951,7 +1966,7 @@ h1#instant_search_results a:hover
     display: none;
     position: absolute;
     right: 5px;
-    top: 149px;
+    top: 75px;
     width: 285px;
     z-index: 999;
 }
@@ -2109,7 +2124,7 @@ h1#instant_search_results a:hover
 }
 #cart_block ul.cart_block_customizations div.deleteCustomizableProduct a
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/icon/delete.gif) no-repeat 0 0;
+    background: url(img/delete.gif) no-repeat 0 0;
     display: block;
     height: 9px;
     width: 9px;
@@ -2637,14 +2652,14 @@ span.our_price_display
 }
 .page_wrapper_3
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/footer-bg.png) repeat-x white;
+    background: url(img/footer-bg.png) repeat-x white;
     margin-bottom: 60px;
     position: relative;
     z-index: 1;
 }
 .page_wrapper_3:after
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/footer-bg.png) repeat-x;
+    background: url(img/footer-bg.png) repeat-x;
     bottom: -16px;
     content: ".";
     height: 16px;
@@ -2814,7 +2829,7 @@ footer .footer-text
 }
 #order_steps li.even
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/marker-order.png) 0 29px no-repeat #9c9c9c;
+    background: url(img/marker-order.png) 0 29px no-repeat #9c9c9c;
 }
 #order_steps li.even:first-child
 {
@@ -2826,7 +2841,7 @@ footer .footer-text
 }
 #order_steps li.odd
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/marker-order.png) 0 29px no-repeat #777777;
+    background: url(img/marker-order.png) 0 29px no-repeat #777777;
 }
 #order_steps li.step_current
 {
@@ -3045,7 +3060,7 @@ table#cart_summary .min-with-td
 }
 table#cart_summary #cart_quantity_button .cart_quantity_down
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/quantity_down_mob.png) 0 0 no-repeat;
+    background: url(img/quantity_down_mob.png) 0 0 no-repeat;
     height: 43px;
     width: 45px;
 }
@@ -3055,7 +3070,7 @@ table#cart_summary #cart_quantity_button .cart_quantity_down:hover
 }
 table#cart_summary #cart_quantity_button .cart_quantity_up
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/quantity_up_mob.png) 0 0 no-repeat;
+    background: url(img/quantity_up_mob.png) 0 0 no-repeat;
     float: left;
     height: 43px;
     width: 45px;
@@ -3658,7 +3673,7 @@ p.error404 img
 }
 #livezilla_lnk a
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/bg_bt_compare.gif) repeat-x scroll 0 0 black;
+    background: url(img/bg_bt_compare.gif) repeat-x scroll 0 0 black;
     border-radius: 3px;
     color: #fff;
     display: inline-block;
@@ -3758,7 +3773,7 @@ p.error404 img
 }
 .cancel,.cancel a
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../../../modules/productcomments/img/delete.gif) no-repeat 0 -16px !important;
+    background: url(img/delete-1.gif) no-repeat 0 -16px !important;
 }
 .cancel a,.star a
 {
@@ -3788,7 +3803,7 @@ div.star_hover a,div.star a:hover
 }
 .star,.star a
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/star.png) no-repeat 0 0;
+    background: url(img/star.png) no-repeat 0 0;
 }
 div.star_on a
 {
@@ -3867,7 +3882,7 @@ form#sendComment h3
 }
 #sendComment p.text input
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/bg_input.png) repeat-x 0 0 white;
+    background: url(img/bg_input.png) repeat-x 0 0 white;
     border: 1px solid lightgrey;
     height: 28px;
     padding: 0 5px;
@@ -3886,7 +3901,7 @@ form#sendComment h3
 }
 #sendComment p.closeform
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/icon/delete.gif) no-repeat 0 0;
+    background: url(img/delete.gif) no-repeat 0 0;
     float: right;
     height: 16px;
     padding: 0;
@@ -3981,7 +3996,7 @@ form#sendComment h3
 }
 .icon-style
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/icon-style.png) center center no-repeat;
+    background: url(img/icon-style.png) center center no-repeat;
     height: 16px;
     width: 16px;
 }
@@ -4087,7 +4102,7 @@ form#sendComment h3
 }
 .footable.breakpoint > tbody > tr > td.expand
 {
-    background-image: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/u.png);
+    background-image: url(img/u.png);
     background-position: 7px center;
     background-repeat: no-repeat;
     padding-left: 40px;
@@ -4095,7 +4110,7 @@ form#sendComment h3
 }
 .footable.breakpoint > tbody > tr.footable-detail-show > td.expand
 {
-    background-image: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/uu.png);
+    background-image: url(img/uu.png);
     padding-left: 40px;
 }
 .footable.breakpoint > tbody > tr > td.expand,.footable.breakpoint > tbody > tr.footable-detail-show > td.expand
@@ -4108,7 +4123,7 @@ form#sendComment h3
 }
 div.checker span,div.radio span
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/sprite.png);
+    background: url(img/sprite.png);
     background-repeat: no-repeat;
     webkit-font-smoothing: antialiased;
 }
@@ -4185,7 +4200,7 @@ div.checker
 }
 div.selector
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/select.png) no-repeat 95% 12px;
+    background: url(img/select.png) no-repeat 95% 12px;
     border: 1px solid lightgrey;
     float: left;
     height: 30px;
@@ -4266,7 +4281,7 @@ div.checker input
 }
 #product div.jGrowl div.jGrowl-notification,#product div.jGrowl div.jGrowl-closer
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/icon/warning.png) no-repeat 10px 15px #d4eeff;
+    background: url(img/warning.png) no-repeat 10px 15px #d4eeff;
     border: 1px solid #34ACF9;
     border-radius: 5px;
     color: #0473B9;
@@ -4433,7 +4448,7 @@ div.checker input
 }
 .page_product_box a.prev,.page_product_box a.next
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/slider-arrow.png) no-repeat transparent;
+    background: url(img/slider-arrow.png) no-repeat transparent;
     display: none;
     height: 27px;
     margin-top: -14px;
@@ -4512,7 +4527,7 @@ div.checker input
 }
 #HOOK_SHOPPING_CART .page_product_box > h3:after
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/heading-shadow.png) repeat-x;
+    background: url(img/heading-shadow.png) repeat-x;
     bottom: -16px;
     content: ".";
     height: 16px;
@@ -4960,7 +4975,7 @@ span.view_scroll_spacer
 }
 #view_scroll_left
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/thumbs_left.png) no-repeat center center;
+    background: url(img/thumbs_left.png) no-repeat center center;
     display: none;
     float: left;
     height: 47px;
@@ -4974,7 +4989,7 @@ span.view_scroll_spacer
 }
 #view_scroll_right
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/thumbs_right.png) no-repeat center center;
+    background: url(img/thumbs_right.png) no-repeat center center;
     float: left;
     height: 47px;
     margin-top: -24px;
@@ -5161,7 +5176,7 @@ span#wrapResetImages div
 }
 #idTab5 p.align_right a
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/icon/delete.gif) 0 0 no-repeat;
+    background: url(img/delete.gif) 0 0 no-repeat;
     display: block;
     float: right;
     height: 0;
@@ -5236,7 +5251,7 @@ span#wrapResetImages div
 }
 #product_comments_block_tab div.star,#product_comments_block_tab div.star_on
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/star.png) no-repeat 0 0 transparent;
+    background: url(img/star.png) no-repeat 0 0 transparent;
 }
 #product_comments_block_tab div.star_on
 {
@@ -5402,7 +5417,7 @@ textarea.customization_block_input
 }
 .mousetrap
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/mousetrap.png) no-repeat left top transparent !important;
+    background: url(img/mousetrap.png) no-repeat left top transparent !important;
     border: 1px solid lightgrey;
     bottom: 10px!important;
     display: block;
@@ -5471,7 +5486,7 @@ textarea.customization_block_input
 }
 #usefull_link_block li.view-size
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/view-size.png) 0 1px no-repeat;
+    background: url(img/view-size.png) 0 1px no-repeat;
     padding-left: 19px;
 }
 #usefull_link_block li a,#usefull_link_block span.span_link
@@ -5521,7 +5536,7 @@ ul#usefull_link_block li#favoriteproducts_block_extra_removed
 }
 .page_product_box > h3:after
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/heading-shadow.png) repeat-x;
+    background: url(img/heading-shadow.png) repeat-x;
     bottom: -16px;
     content: ".";
     height: 16px;
@@ -5576,14 +5591,14 @@ ul#usefull_link_block li#favoriteproducts_block_extra_removed
 }
 #product_comments_block_extra ul li .open-comment-form
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/icon-review.png) left 0 no-repeat;
+    background: url(img/icon-review.png) left 0 no-repeat;
     display: inline-block;
     line-height: 16px;
     padding-left: 22px;
 }
 #product_comments_block_extra ul > li + li a
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/icon-review-read.png) left 0 no-repeat;
+    background: url(img/icon-review-read.png) left 0 no-repeat;
     display: inline-block;
     line-height: 16px;
     padding-left: 22px;
@@ -5600,11 +5615,11 @@ ul#usefull_link_block li#favoriteproducts_block_extra_removed
 }
 #product_comments_block_extra div.star
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/star.png) no-repeat scroll 0 0 transparent;
+    background: url(img/star.png) no-repeat scroll 0 0 transparent;
 }
 #product_comments_block_extra div.star_on
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/../img/star.png) no-repeat scroll 0 -12px transparent;
+    background: url(img/star.png) no-repeat scroll 0 -12px transparent;
 }
 #product_comments_block_extra .comments_advices a.open-comment-form
 {
@@ -6189,11 +6204,7 @@ img.jqzoom
 {
     text-decoration: underline;
 }
-#contact_block .block_content
-{
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/modules/blockcontact/images/block_contact_bg.jpg) no-repeat left bottom transparent;
-    padding: 0 0 30px 0;
-}
+
 #contact_block h5
 {
     border-bottom: 1px dotted #b2b2b2;
@@ -6690,7 +6701,7 @@ img.jqzoom
 }
 .add_wishlist_button a span
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/modules/blockwishlist/img/icon/pict_add_wishlist.png) no-repeat 0 0 transparent;
+    background: url(img/pict_add_wishlist.png) no-repeat 0 0 transparent;
     display: block;
     height: 26px;
     left: -12px;
@@ -6736,7 +6747,7 @@ img.jqzoom
 }
 #wishlist_block_list .ajax_cart_block_remove_link a
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/modules/blockwishlist/img/icon/delete.gif) no-repeat 0 0;
+    background: url(img/delete.gif) no-repeat 0 0;
     display: inline-block;
     height: 12px;
     width: 12px;
@@ -6975,7 +6986,7 @@ ul.wlp_bought_list li .product_infos
 }
 .theme-default .nivoSlider
 {
-    background-image: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/modules/minicslider/views/js/plugins/nivo-slider/loading.gif);
+    background-image: url(img/loading.gif);
     background-position: 50% 50%;
     background-repeat: no-repeat;
     margin: 0 auto;
@@ -7000,7 +7011,7 @@ ul.wlp_bought_list li .product_infos
 }
 .theme-default .nivo-controlNav a
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/modules/minicslider/views/js/plugins/nivo-slider/bullets.png) no-repeat;
+    background: url(img/bullets.png) no-repeat;
     border: 0;
     display: inline-block;
     height: 22px;
@@ -7221,7 +7232,7 @@ body.instant_search #htmlcontent_top
 }
 .menu_wrapper:after
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/modules/blocktopmenu/css/../../../../img/menu-shadow.png) repeat-x;
+    background: url(img/menu-shadow.png) repeat-x;
     bottom: -14px;
     content: ".";
     height: 14px;
@@ -7277,7 +7288,7 @@ body.instant_search #htmlcontent_top
     padding: 12px 20px 17px 20px;
     text-decoration: none;
 }
-.desktop #menu-custom > a:hover,.desktop #menu-custom > li:hover > a,.desktop #menu-custom > li.sfHoverForce > a
+.desktop #menu-custom > a:hover,.desktop #menu-custom > li:hover > a,.desktop #menu-custom > li.selected > a
 {
     background: linear-gradient(to bottom,rgb(80,80,80) 0,rgb(64,64,64) 100%);
     background: -moz-linear-gradient(top,rgb(80,80,80) 0,rgb(64,64,64) 100%);
@@ -7294,7 +7305,7 @@ body.instant_search #htmlcontent_top
 }
 .desktop #menu-custom ul
 {
-    background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/modules/blocktopmenu/css/../../../../img/sub-menu-bg.gif) repeat-x #fff;
+    background: url(img/sub-menu-bg.gif) repeat-x #fff;
     box-shadow: 0 5px 5px rgba(0,0,0,0.36);
     display: none;
     left: 0;
@@ -7344,7 +7355,7 @@ body.instant_search #htmlcontent_top
     white-space: nowrap;
     width: 220px;
 }
-.desktop #menu-custom ul a:hover,.desktop #menu-custom ul li.sfHoverForce > a
+.desktop #menu-custom ul a:hover,.desktop #menu-custom ul li.selected > a
 {
     color: #333;
 }
@@ -7405,7 +7416,7 @@ body.instant_search #htmlcontent_top
     }
     .mobile #menu-custom
     {
-        background: url(http://livedemo00.template-help.com/prestashop_47744/themes/theme852/css/modules/blocktopmenu/css/../../../../img/sub-menu-bg.gif) repeat-x #fff;
+        background: url(img/sub-menu-bg.gif) repeat-x #fff;
         box-shadow: 0 5px 5px rgba(0,0,0,0.36);
         display: none;
         left: 0;

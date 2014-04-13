@@ -67,12 +67,24 @@
 </section>
 {/if} 
 
+{if $wa->shop && $wa->shop->pages()}
+<section class="block blockmanufacturer column_box" id="manufacturers_block_left">
+    <h4 class="title_block"><span>Информация</span><i class="column_icon_toggle icon-plus-sign"></i></h4>
+    <div class="block_content toggle_content">
+        <ul class="store_list">
+            {foreach $wa->shop->pages() as $page}
+            <li><a href="{$page.url}" >{$page.name}</a></li>
+            {/foreach}
+        </ul>
+    </div>
+</section>
+{/if}
 
-{if $cloud = $wa->shop->tags()}
+{if $wa->shop && $wa->shop->tags()}
 <section id="tags_block_left" class="block tags_block column_box">
     <h4><span>Тэги</span><i class="column_icon_toggle icon-plus-sign"></i></h4>
     <p class="block_content toggle_content">
-        {foreach $cloud as $tag}
+        {foreach $wa->shop->tags() as $tag}
         <a href="{$wa->getUrl('shop/frontend/tag',['tag' => $tag.uri_name])}" style="font-size: {$tag.size}%; opacity: {$tag.opacity}">{$tag.name|escape}</a>
         {/foreach}
     </p>

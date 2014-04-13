@@ -2,13 +2,13 @@ $(document).ready(function () {
 
     // scroll-dependent animations
     $(window).scroll(function() {    
-      	if ( $(this).scrollTop()>=35 ) {
-            if (!$("#cart").hasClass('empty')) {
-              	$("#cart").addClass( "fixed" );
+      	if ( $(this).scrollTop()>=305 ) {
+            if (!$("#header_user").hasClass('empty')) {
+              	$("#header_user").addClass( "fixed" );
             }
     	}
-    	else if ( $(this).scrollTop()<30 ) {
-    		$("#cart").removeClass( "fixed" );
+    	else if ( $(this).scrollTop()<300 ) {
+    		$("#header_user").removeClass( "fixed" );
     	}    
     });
   

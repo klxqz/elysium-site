@@ -25,12 +25,7 @@ $(window).load(function() {
         $(".compare .comparator, #layered_form .store_list_filter input.checkbox").uniform();
     });
 });
-$(function() {
-    $('body').tooltip({
-        selector: "[rel=tooltip]",
-        placement: "bottom"
-    });
-});
+
 //   COOKIE AND TAB GRID-LIST
 (function($) {
     $(function() {
