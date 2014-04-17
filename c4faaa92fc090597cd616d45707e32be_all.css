@@ -4926,6 +4926,13 @@ div.checker input
     position: relative;
     top: 3px;
 }
+
+
+#view_full_size{
+    display: block;
+    width: 100%;
+}
+
 #view_full_size .span_link
 {
     text-indent: -5000px;
@@ -5387,9 +5394,12 @@ textarea.customization_block_input
     cursor: move;
     margin: -4px;
 }
-#image-block .mousetrap:hover
-{
-    cursor: move;
+
+
+#image-block img{
+    display: block;
+    margin: 0 auto;
+    
 }
 .cloud-zoom-title
 {

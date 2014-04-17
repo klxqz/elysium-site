@@ -1,3 +1,4 @@
+/*
 $(document).ready(function() {
     $('.blockuserinfo a').on('click touchend', function(e) {
         var el = $(this);
@@ -6,8 +7,10 @@ $(document).ready(function() {
     });
 
 });
+*/
 
 //    breadcrumb replace
+/*
 $(document).ready(function() {
     breadcrumb = $('.breadcrumb');
     $('#center_column .breadcrumb').remove();
@@ -20,6 +23,8 @@ $(document).ready(function() {
     $('#compare_shipping select, #compare_shipping input[type="text"]').addClass('form-control').parent('p').addClass('form-group');
     $('#compare_shipping_form #compare_shipping h3').wrapInner('<span></span>');
 });
+*/
+
 $(window).load(function() {
     $(function() {
         $(".compare .comparator, #layered_form .store_list_filter input.checkbox").uniform();

@@ -34,12 +34,26 @@ jQuery(document).ready(function() {
         slideMargin: 30,
         minSlides: 1,
         maxSlides: 6,
-        slideWidth: 128,
+        slideWidth: 130,
         infiniteLoop: false,
         moveSlides: 1,
         nextText: '',
         prevText: ''
     });
+    
+     $('#product-gallery').bxSlider({
+        pager: false,
+        controls: true,
+        minSlides: 1,
+        maxSlides: 4,
+        slideWidth: 80,
+        infiniteLoop: false,
+        moveSlides: 1,
+        nextText: '',
+        prevText: ''
+    });
+    
+    
     
     
 });

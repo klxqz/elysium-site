@@ -12,6 +12,9 @@
         <meta name="Keywords" content="{$wa->meta('keywords')|escape}" />
         <meta name="Description" content="{$wa->meta('description')|escape}" />
 
+        {if $wa->isMobile()}
+        <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=0;" />
+        {/if}
         {if !empty($canonical)}<link rel="canonical" href="{$canonical}"/>{/if}
 
         <!-- css -->
@@ -25,26 +28,20 @@
         <script src="{$wa_theme_url}script.js" ></script>
 
         <script type="text/javascript" src="{$wa_theme_url}custom.js?v{$wa_theme_version}"></script>    
-        {if $wa->isMobile()}
-        <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=0;" />
-        {/if}
+
         {$wa->js()} {* links active plugins JS *}
 
         <link href="{$wa_theme_url}css/bootstrap.min.css"  rel="stylesheet" type="text/css" media="all"/>
         <link href="{$wa_theme_url}css/font.css"  rel="stylesheet" type="text/css" media="all"/>
         <link href="{$wa_theme_url}c4faaa92fc090597cd616d45707e32be_all.css"  rel="stylesheet" type="text/css" media="all"/>
         <link href="{$wa_theme_url}responsive.css"  rel="stylesheet" type="text/css" media="all"/>
-        
+
         <link href="{$wa_theme_url}jquery.bxslider.css"  rel="stylesheet" type="text/css" media="all"/>
-        
+
         <script src="{$wa_theme_url}jquery.nivo.slider.pack.js" ></script>
         <script src="{$wa_theme_url}mainscript.js" ></script>
         <script src="{$wa_theme_url}jquery.uniform.js" ></script>
-        <script src="{$wa_theme_url}plugins.js" ></script>
-        {*<script src="{$wa_theme_url}jquery.mousewheel.js" ></script>*}
-        {*<script src="{$wa_theme_url}jquery.carouFredSel-6.2.1.js" ></script>*}
-        {*<script src="{$wa_theme_url}jquery.touchSwipe.min.js" ></script>*}
-        
+
         <script src="{$wa_theme_url}jquery.bxslider.min.js" ></script>
 
 
