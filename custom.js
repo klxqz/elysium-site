@@ -26,4 +26,20 @@ jQuery(document).ready(function() {
         location.href = url + 'currency=' + $(this).data('value');
         return false;
     });
+    
+    /************bx-slider***************/
+    $('.bxslider').bxSlider({
+        pager: false,
+        controls: true,
+        slideMargin: 30,
+        minSlides: 1,
+        maxSlides: 6,
+        slideWidth: 128,
+        infiniteLoop: false,
+        moveSlides: 1,
+        nextText: '',
+        prevText: ''
+    });
+    
+    
 });

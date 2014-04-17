@@ -4397,7 +4397,6 @@ div.checker input
 .page_product_box .carusel-inner
 {
     display: block;
-    margin: 0 0 0 -20px;
     padding: 0 0 0 0;
     position: relative;
 }
@@ -4424,18 +4423,18 @@ div.checker input
 {
     position: relative;
 }
-.page_product_box .carusel-inner li a
-{
-    display: inline;
+
+
+.lnk_img{
+    display: table;
+    margin: 0 auto;
 }
+
 .page_product_box .carusel-inner li
 {
     display: block;
-    float: left;
     height: 200px;
-    margin-left: 20px;
     text-align: center;
-    width: 146px;
 }
 .page_product_box .carusel-inner li .price_display
 {
@@ -5440,6 +5439,9 @@ textarea.customization_block_input
     right: 10px;
     width: 104px!important;
     z-index: 2;
+}
+#wrap{
+    min-height: 125px;
 }
 #wrap a
 {
