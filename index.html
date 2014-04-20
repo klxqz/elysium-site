@@ -194,10 +194,8 @@
 
 
 
-
+                {if $wa->shop}
                 {$cart = $wa->shop->cart()}
-
-
                 {$cart_total = $wa->shop->cart->total()}
                 {$cart_count = $wa->shop->cart->count()}   
                 <section id="header_user" class=" blockuserinfo-cart header-box ">
@@ -270,27 +268,25 @@
                             </div>
                         </div>
                     </section>
-
                 </section>
+                {/if}
 
 
 
             </div>
+            {if $wa->shop}
             <div class="menu_wrapper">
                 <div class="container">
                     <div id="menu-wrap" class="clearfix desktop">
                         <div id="menu-trigger">Категории<i class="menu-icon icon-plus-sign-alt"></i></div>
-
-
-                        {if isset($category)}{$selected_category=$category.id}{else}{$selected_category=null}{/if}
+                        $categories = $wa->shop->categories(0, null, true)}
+                        {if $categories}
+                        {wa_print_tree tree=$categories attrs = 'id="menu-custom"' selected=$selected_category unfolded=true collapsible_class='parent'  elem ='<a href=":url" title=":name">:name</a>'}
+                        {/if}{if isset($category)}{$selected_category=$category.id}{else}{$selected_category=null}{/if}
                         {$categories = $wa->shop->categories(0, null, true)}
                         {if $categories}
-
                         {wa_print_tree tree=$categories attrs = 'id="menu-custom"' selected=$selected_category unfolded=true collapsible_class='parent'  elem ='<a href=":url" title=":name">:name</a>'}
-
                         {/if}
-
-
                     </div>
                 </div>
                 <script type="text/javascript">
@@ -299,6 +295,7 @@
                     });
                 </script>
             </div>
+            {/if}
         </header>
     </div>
     <div class="page_wrapper_2 clearfix">
@@ -315,7 +312,6 @@
                     <a href="{$breadcrumb.url}">{$breadcrumb.name|escape}</a>
                     {/foreach}
                     {else} » {/if}
-
                 </div>
             </div>
             {/if}
@@ -340,18 +336,22 @@
                 <section class="col-sm-3 block block_category_footer">
                     <h4>Категории<i class="icon-plus-sign"></i></h4>
                     <!-- category tree -->
+                    {if $wa->shop}
                     {if isset($category)}{$selected_category=$category.id}{else}{$selected_category=null}{/if}
                     {wa_print_tree tree=$wa->shop->categories(0, 0, true) selected=$selected_category unfolded=false class="toggle_content list-footer tree dhtml" elem ='<a href=":url" title=":name">:name</a>'}
+                    {/if}
                 </section>
 
 
                 <section class="block blockcms_footer col-sm-3">
                     <h4 class="toggle">Информация<i class="icon-plus-sign"></i></h4>
+                    {if $wa->shop && $wa->shop->pages()}
                     <ul class="list-footer toggle_content clearfix">
                         {foreach $wa->shop->pages() as $page}
                         <li><a href="{$page.url}" >{$page.name}</a></li>
                         {/foreach}
                     </ul>
+                    {/if}
                 </section>
                 <section class="bottom_footer">
                     &copy; {time()|wa_datetime:"Y"}
@@ -363,13 +363,13 @@
                     <ul class="list-footer toggle_content clearfix">
                         {if $wa->getUrl('shop/frontend/my')}<li><a href="{$wa->getUrl('shop/frontend/my')}">[s`My account`]</a></li>{/if}
                         {if $wa->getUrl('shop/frontend/my/myOrders')}<li><a href="{$wa->getUrl('shop/frontend/myOrders')}" >Мои заказы</a></li>{/if}
-                        {if shopAffiliate::isEnabled()}<li><a href="{$wa->getUrl('/frontend/myAffiliate')}">[`Affiliate program`]</a></li>{/if}
+                        {if $wa->shop && shopAffiliate::isEnabled()}<li><a href="{$wa->getUrl('/frontend/myAffiliate')}">[`Affiliate program`]</a></li>{/if}
                     </ul>
                 </section>
 
                 <div id="htmlcontent_footer">
                     <ul class="htmlcontent-home clearfix">
-                        {if $wa->shop->settings('phone')}
+                        {if $wa->shop && $wa->shop->settings('phone')}
                         <li class="htmlcontent-item">
                             <div class="item-html">
                                 <h3>Tel: {$wa->shop->settings('phone')}</h3>
