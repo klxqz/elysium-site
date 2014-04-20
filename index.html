@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 " lang="ru"> <![endif]-->
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8 ie7" lang="ru"> <![endif]-->
@@ -18,36 +17,48 @@
         {if !empty($canonical)}<link rel="canonical" href="{$canonical}"/>{/if}
 
         <!-- css -->
-        <link href="{$wa_theme_url}custom.css?v{$wa_theme_version}" rel="stylesheet" type="text/css"/>
+
+
+        <link href="{$wa_theme_url}css/bootstrap.min.css"  rel="stylesheet" type="text/css" media="all"/>
+        <link href="{$wa_theme_url}css/font.css"  rel="stylesheet" type="text/css" media="all"/>
+        <link href="{$wa_theme_url}elysium.css?v{$wa_theme_version}" rel="stylesheet" type="text/css"/>
         {if $wa->shop && $wa->shop->currency() == 'RUB'} <link href="{$wa_url}wa-content/font/ruble/arial/fontface.css" rel="stylesheet" type="text/css" />{/if}
         {$wa->css()} {* links active plugins CSS *}
 
         <!-- js -->
         <script type="text/javascript" src="{$wa_url}wa-content/js/jquery/jquery-1.8.2.min.js"></script>
-
-        <script src="{$wa_theme_url}script.js" ></script>
-
-        <script type="text/javascript" src="{$wa_theme_url}custom.js?v{$wa_theme_version}"></script>    
+        <script type="text/javascript" src="{$wa_theme_url}elysium.js?v{$wa_theme_version}"></script>    
 
         {$wa->js()} {* links active plugins JS *}
 
-        <link href="{$wa_theme_url}css/bootstrap.min.css"  rel="stylesheet" type="text/css" media="all"/>
-        <link href="{$wa_theme_url}css/font.css"  rel="stylesheet" type="text/css" media="all"/>
-        <link href="{$wa_theme_url}c4faaa92fc090597cd616d45707e32be_all.css"  rel="stylesheet" type="text/css" media="all"/>
+
         <link href="{$wa_theme_url}responsive.css"  rel="stylesheet" type="text/css" media="all"/>
 
         <link href="{$wa_theme_url}jquery.bxslider.css"  rel="stylesheet" type="text/css" media="all"/>
 
-        <script src="{$wa_theme_url}jquery.nivo.slider.pack.js" ></script>
-        <script src="{$wa_theme_url}mainscript.js" ></script>
-        <script src="{$wa_theme_url}jquery.uniform.js" ></script>
+        <link href="{$wa_theme_url}css/uniform.default.min.css?v{$wa_theme_version}" rel="stylesheet" type="text/css"/>
 
-        <script src="{$wa_theme_url}jquery.bxslider.min.js" ></script>
+        <script src="{$wa_theme_url}js/jquery.nivo.slider.pack.js" ></script>
 
+        <script src="{$wa_theme_url}js/jquery.uniform.min.js" ></script>
 
+        <script src="{$wa_theme_url}js/jquery.bxslider.min.js" ></script>
+
+        {if !empty($theme_settings.tagcanvas)}
+        <script src="{$wa_theme_url}js/jquery.tagcanvas.min.js" ></script>
+        {/if}
+
+        <script type="text/javascript">
+            $(function() {
+                $.elysiumSite.init({
+                    tagcanvas: {$theme_settings.tagcanvas},
+                    cartscroll: {$theme_settings.cartscroll} ,
+                    upscroll: {$theme_settings.upscroll},
+                });
+            });</script>
 
         <script>
-            ajaxcart_allowed = 1;
+                    ajaxcart_allowed = 1;
         </script>
 
 
@@ -74,9 +85,13 @@
 
 
     </head>
-    <!--[if lt IE 9]><div style='clear:both;height:59px;padding:0 15px 0 15px;position:relative;z-index:10000;text-align:center;'><a href="#" ><img src="{$wa_theme_url}warning_bar_0000_us.jpg"  border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." /></a></div><![endif]-->
-    <body id="index" class="index lang_ru">
+    <body>
         <div class="page_wrapper_1 clearfix">
+            {if !empty($theme_settings.left_fixed_pluso)}
+            <div id="left_fixed_pluso">
+                <div class="pluso" data-background="#ebebeb" data-options="medium,square,line,vertical,nocounter,theme=01" data-services="vkontakte,odnoklassniki,facebook,twitter,google,moimir,email,print"></div>
+            </div>
+            {/if}
 
             <header id="header">
                 <div id="header_right" class="container">
@@ -189,11 +204,15 @@
                     <div id="shopping_cart">
                         <a href="#"  title="Просмотреть мою корзину" rel="nofollow">
                             <span class="shopping_cart_title">[s`Shopping cart`]:</span>
-                            {if $cart_count}
-                            <span class="cart-total ajax_cart_quantity">товаров: {$cart_count}</span>
-                            {else}
-                            <span class="ajax_cart_no_product">(пусто)</span>
-                            {/if}
+
+                            <span class="cart-total ajax_cart_quantity">
+                                {if $cart_count}
+                                товаров: {$cart_count}
+                                {else}
+                                (пусто)
+                                {/if}
+                            </span>
+
                             <i class="opancart icon-angle-down"></i>
                         </a>
                     </div>
@@ -284,24 +303,24 @@
     </div>
     <div class="page_wrapper_2 clearfix">
         <div id="columns" class="container">
-            <div class="row">
 
-                <!-- navigation breadcrumbs -->
-                {if isset($breadcrumbs) && $breadcrumbs}    
-                <div class="breadcrumb">
-                    <div class="breadcrumb_inset">
-                        <a href="{$wa_app_url}" class="breadcrumb-home"><i class="icon-home"></i></a>
-                        {if $breadcrumbs}
-                        {foreach $breadcrumbs as $breadcrumb}
-                        <span class="navigation-pipe">»</span> 
-                        <a href="{$breadcrumb.url}">{$breadcrumb.name|escape}</a>
-                        {/foreach}
-                        {else} » {/if}
+            <!-- navigation breadcrumbs -->
+            {if isset($breadcrumbs) && $breadcrumbs}    
+            <div class="breadcrumb">
+                <div class="breadcrumb_inset">
+                    <a href="{$wa_app_url}" class="breadcrumb-home"><i class="icon-home"></i></a>
+                    {if $breadcrumbs}
+                    {foreach $breadcrumbs as $breadcrumb}
+                    <span class="navigation-pipe">»</span> 
+                    <a href="{$breadcrumb.url}">{$breadcrumb.name|escape}</a>
+                    {/foreach}
+                    {else} » {/if}
 
-                    </div>
                 </div>
-                {/if}
+            </div>
+            {/if}
 
+            <div class="row">   
                 <div id="left_column" class="col-xs-12 col-sm-3 column">
                     {include file="sidebar.html" inline}
                 </div>
@@ -379,6 +398,7 @@
                 </section>
             </div>
         </footer>
+        <a title="Прокрутить вверх" href="#" id="scrollUp" ><i class="icon-arrow-up"></i></a>
     </div>
 </body>
 </html>

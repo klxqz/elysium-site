@@ -30,7 +30,15 @@
                             <span class="layered_weight_range_unit col-xs-1 control-label">{$c.sign}</span>
                         </div>
                     </li>
+                    {if !empty($theme_settings.filter_slider)}
+                    <li>
+                        <div id="filter-slider"></div>
+                    </li>
+                    {/if}
                 </ul>
+
+
+
 
                 {else}
 
@@ -83,11 +91,20 @@
 {if $wa->shop && $wa->shop->tags()}
 <section id="tags_block_left" class="block tags_block column_box">
     <h4><span>Тэги</span><i class="column_icon_toggle icon-plus-sign"></i></h4>
-    <p class="block_content toggle_content">
-        {foreach $wa->shop->tags() as $tag}
-        <a href="{$wa->getUrl('shop/frontend/tag',['tag' => $tag.uri_name])}" style="font-size: {$tag.size}%; opacity: {$tag.opacity}">{$tag.name|escape}</a>
-        {/foreach}
-    </p>
+    <div class="block_content toggle_content">
+        {if !empty($theme_settings.tagcanvas)}
+        <div id="tag-cloud-canvas">
+            <canvas width="300" height="300" id="canvas"></canvas>
+        </div>
+        {/if}
+        <div id="tag-cloud">
+            <ul>
+                {foreach $wa->shop->tags() as $tag}
+                <li><a href="{$wa->getUrl('shop/frontend/tag',['tag' => $tag.uri_name])}" style="font-size: {$tag.size}%; opacity: {$tag.opacity}">{$tag.name|escape}</a></li>
+                {/foreach}
+            </ul>
+        </div>
+    </div>
 </section>
 {/if}
 
