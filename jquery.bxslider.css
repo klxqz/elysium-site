@@ -96,7 +96,7 @@
 
 
 .bx-wrapper .bx-controls-direction a {
-    
+    z-index: 9999;
     background-image: url(img/slider-arrow.png);
     background-repeat: no-repeat;
     height: 27px;

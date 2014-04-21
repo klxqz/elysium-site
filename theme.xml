@@ -57,21 +57,124 @@
 ]]>
     </about>
     <settings>
-        <setting var="bg_image" control_type="image_select">
-            <value>img/cloth.jpg</value>
-            <name locale="en_US">Background</name>
-            <name locale="ru_RU">Фон</name>
+        
+        <setting var="logo" control_type="image">
+            <value>logo.jpg</value>
+            <name locale="en_US">Logo</name>
+            <name locale="ru_RU">Логотип</name>
+        </setting>
+        <setting var="phone" control_type="text">
+            <value>+7-999-999-99-99</value>
+            <name locale="en_US">Phone</name>
+            <name locale="ru_RU">Телефон</name>
+        </setting>
+        <setting var="footer_facebook" control_type="text">
+            <value>#</value>
+            <name locale="en_US">Link to facebook</name>
+            <name locale="ru_RU">Ссылка на facebook</name>
+        </setting>
+        <setting var="footer_twitter" control_type="text">
+            <value>#</value>
+            <name locale="en_US">Link to twitter</name>
+            <name locale="ru_RU">Ссылка на twitter</name>
+        </setting>
+        <setting var="source_main_menu" control_type="select">
             <options>
-                <option value="img/cloth.jpg"></option>
-                <option value="img/grey.jpg"></option>
-                <option value="img/red.jpg"></option>
-                <option value="img/blue.jpg"></option>
-                <option value="img/green.jpg"></option>
-                <option value="img/purple.jpg"></option>
-                <option value="img/yellow.jpg"></option>
+                <option value="site_pages">
+                    <name locale="en_US">Application «Site» - pages</name>
+                    <name locale="ru_RU">Приложение «Сайт» - страницы</name>
+                </option>
+                <option value="shop_pages">
+                    <name locale="en_US">Application «Shop» - pages</name>
+                    <name locale="ru_RU">Приложение «Магазин» - страницы</name>
+                </option>
+                <option value="shop_categories">
+                    <name locale="en_US">Application «Shop» - categories</name>
+                    <name locale="ru_RU">Приложение «Магазин» - категории</name>
+                </option>
             </options>
+            <value>site</value>
+            <name locale="en_US">Source for the main top menu</name>
+            <name locale="ru_RU">Источник для главного верхнего меню</name>
+        </setting>
+        <setting var="source_footer_info" control_type="select">
+            <options>
+                <option value="site_pages">
+                    <name locale="en_US">Application «Site» - pages</name>
+                    <name locale="ru_RU">Приложение «Сайт» - страницы</name>
+                </option>
+                <option value="shop_pages">
+                    <name locale="en_US">Application «Shop» - pages</name>
+                    <name locale="ru_RU">Приложение «Магазин» - страницы</name>
+                </option>
+            </options>
+            <value>site</value>
+            <name locale="en_US">Source for block «Information» at the bottom of the page</name>
+            <name locale="ru_RU">Источник для блока «Информация» в нижней части страницы</name>
+        </setting>    
+        <setting var="show_sidebar" control_type="checkbox">
+            <value>1</value>
+            <name locale="en_US">Show sidebar(can be useful if you use only the application «Site»)</name>
+            <name locale="ru_RU">Показывать sidebar(может быть полезно, если вы используете, только приложение «Сайт»)</name>
+        </setting>
+        <setting var="show_news_block" control_type="checkbox">
+            <value>1</value>
+            <name locale="en_US">Block news.</name>
+            <name locale="ru_RU">Блок новости.</name>
+        </setting>
+        <setting var="news_block_slider" control_type="checkbox">
+            <value>1</value>
+            <name locale="en_US">Block news. Slider</name>
+            <name locale="ru_RU">Блок новости. Слайдер</name>
+        </setting>
+        <setting var="number_news" control_type="text">
+            <value>4</value>
+            <name locale="en_US">Block news. Number of news(from 1)</name>
+            <name locale="ru_RU">Блок новости. Количество новостей(число от 1)</name>
+        </setting>
+        <setting var="number_char" control_type="text">
+            <value>400</value>
+            <name locale="en_US">Block news. Number of characters in the description</name>
+            <name locale="ru_RU">Блок новости. Количество символов в описание</name>
+        </setting>
+        <setting var="show_photo_block" control_type="checkbox">
+            <value>1</value>
+            <name locale="en_US">Block photos.</name>
+            <name locale="ru_RU">Блок фото.</name>
+        </setting>
+        <setting var="photo_block_slider" control_type="checkbox">
+            <value>1</value>
+            <name locale="en_US">Block photos. Slider</name>
+            <name locale="ru_RU">Блок фото. Слайдер</name>
+        </setting>
+        <setting var="number_photos" control_type="text">
+            <value>5</value>
+            <name locale="en_US">Block photos. Number of photos(from 1)</name>
+            <name locale="ru_RU">Блок фото. Количество фотографий(число от 1)</name>
+        </setting>
+        <setting var="photo_size" control_type="text">
+            <value>200x0</value>
+            <name locale="en_US">Block photos. Photo size</name>
+            <name locale="ru_RU">Блок фото. Размер фотографии</name>
         </setting>
         
+        
+        <setting var="source_tag_cloud" control_type="select">
+            <options>
+                <option value="shop">
+                    <name locale="en_US">Application «Shop»</name>
+                    <name locale="ru_RU">Приложение «Магазин»</name>
+                </option>
+                <option value="photos">
+                    <name locale="en_US">Application «Photos»</name>
+                    <name locale="ru_RU">Приложение «Фото»</name>
+                </option>
+            </options>
+            <value>photos</value>
+            <name locale="en_US">Source for block «Tags»</name>
+            <name locale="ru_RU">Источник для блока «Теги»</name>
+        </setting>
+
         <setting var="tagcanvas" control_type="checkbox">
             <value>1</value>
             <name locale="en_US">3D tags</name>
@@ -79,19 +182,18 @@
         </setting>
         <setting var="cartscroll" control_type="checkbox">
             <value>1</value>
-            <name locale="en_US">Плавающая корзина</name>
+            <name locale="en_US">Floating cart</name>
             <name locale="ru_RU">Плавающая корзина</name>
         </setting>
         <setting var="upscroll" control_type="checkbox">
             <value>1</value>
-            <name locale="en_US">Прокрутка вверх</name>
+            <name locale="en_US">Scroll up</name>
             <name locale="ru_RU">Прокрутка вверх</name>
         </setting>
         <setting var="left_fixed_pluso" control_type="checkbox">
             <value>1</value>
-            <name locale="en_US">Социальные кнопки</name>
+            <name locale="en_US">Social sharing</name>
             <name locale="ru_RU">Социальные кнопки</name>
         </setting>
-        
     </settings>
 </theme>
