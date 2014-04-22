@@ -1017,7 +1017,9 @@ ul#usefull_link_block li#favoriteproducts_block_extra_removed{ display: none; }
  #HOOK_SHOPPING_CART .crossselling.page_product_box h3{ margin-top: 7px; }
  #product_comments_block_extra .comments_advices a.read_rew{ border: none; margin-bottom: 10px; }
 }
-@media only screen and (max-width:767px){ #primary_block #pb-right-column{ float: none; margin: 0 auto; }
+@media only screen and (max-width:767px){ 
+ #columns{ padding-left: 40px;}
+ #primary_block #pb-right-column{ float: none; margin: 0 auto; }
  .pb-right-colum-h{ display: block; margin: -10px 0 15px; }
  .pb-right-rating{ display: table;}
  #primary_block #image-block{ margin: 0 auto 10px; width: 290px; }

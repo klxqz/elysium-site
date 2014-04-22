@@ -93,7 +93,7 @@
                     <name locale="ru_RU">Приложение «Магазин» - категории</name>
                 </option>
             </options>
-            <value>site</value>
+            <value>shop_categories</value>
             <name locale="en_US">Source for the main top menu</name>
             <name locale="ru_RU">Источник для главного верхнего меню</name>
         </setting>
@@ -108,7 +108,7 @@
                     <name locale="ru_RU">Приложение «Магазин» - страницы</name>
                 </option>
             </options>
-            <value>site</value>
+            <value>shop_pages</value>
             <name locale="en_US">Source for block «Information» at the bottom of the page</name>
             <name locale="ru_RU">Источник для блока «Информация» в нижней части страницы</name>
         </setting>    

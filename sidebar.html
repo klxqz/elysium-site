@@ -12,7 +12,6 @@
                     <span class="layered_subtitle">[`Price`]</span>
                     <span class="layered_close"><a rel="ul_layered_{$fid}" href="#"><i class="icon-minus-sign"></i></a></span>
                 </h2>
-
                 <ul id="ul_layered_{$fid}" class="store_list_filter ul_filter clearfix">
                     <li class="nomargin row">
                         <div class="form-group clearfix col-xs-6 col-sm-12">
@@ -36,22 +35,17 @@
                     </li>
                     {/if}
                 </ul>
-
-
-
-
                 {else}
-
                 <h2 class="clearfix">
                     <span class="layered_subtitle">{$filter.name|escape}</span>
                     <span class="layered_close"><a rel="ul_layered_{$fid}" href="#"><i class="icon-minus-sign"></i></a></span>
                 </h2>
-
-
                 {if $filter.type == 'boolean'}
-                <label><input class="radio" type="radio" name="{$filter.code}"{if $wa->get($filter.code)} checked{/if} value="1"> [`Yes`]</label><br>
-                <label><input class="radio" type="radio" name="{$filter.code}"{if $wa->get($filter.code) === '0'} checked{/if} value="0"> [`No`]</label><br>
-                <label><input class="radio" type="radio" name="{$filter.code}"{if $wa->get($filter.code, '') === ''} checked{/if} value=""> [`Any`]</label><br>
+                <ul id="ul_layered_{$fid}" class="store_list_filter ul_filter clearfix">
+                    <li><input class="radio" type="radio" name="{$filter.code}"{if $wa->get($filter.code)} checked{/if} value="1"> [`Yes`]</li>
+                    <li><input class="radio" type="radio" name="{$filter.code}"{if $wa->get($filter.code) === '0'} checked{/if} value="0"> [`No`]</li>
+                    <li><input class="radio" type="radio" name="{$filter.code}"{if $wa->get($filter.code, '') === ''} checked{/if} value=""> [`Any`]</li>
+                </ul>
                 {else}
                 <ul id="ul_layered_{$fid}" class="store_list_filter ul_filter clearfix">
                     {foreach $filter.values as $v_id => $v}
@@ -62,7 +56,6 @@
                     {/foreach}
                 </ul>
                 {/if}
-
                 {/if}
             </div>
             {/foreach}
