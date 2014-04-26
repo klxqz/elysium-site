@@ -12,10 +12,41 @@
             this.initUpScroll();
             this.initPluso();
             this.initBxSliders();
+            this.initAccordion();
+            this.initSuperfish();
         },
         initMain: function() {
+            $(".currencies_ul a").click(function() {
+                var url = location.href;
+                if (url.indexOf('?') == -1) {
+                    url += '?';
+                } else {
+                    url += '&';
+                }
+                location.href = url + 'currency=' + $(this).data('value');
+                return false;
+            });
 
+            /************bx-slider***************/
+            $('.bxslider').bxSlider({
+                pager: false,
+                controls: true,
+                slideMargin: 30,
+                minSlides: 1,
+                maxSlides: 6,
+                slideWidth: 130,
+                infiniteLoop: false,
+                moveSlides: 1,
+                nextText: '',
+                prevText: ''
+            });
 
+        },
+        initAccordion: function() {
+            $(".accordion-menu").accordion();
+        },
+        initSuperfish: function() {
+            $('.sf-menu').superfish();
         },
         initBxSliders: function() {
             if (this.options.photo_block_slider) {
@@ -80,11 +111,7 @@
             });
         },
         initUniform: function() {
-            try {
-                $("input:not([type=submit]),select").uniform();
-            } catch (e) {
-            }
-
+            $("input:not([type=submit]),select").uniform();
         },
         initTagCanvas: function() {
             if (!this.options.tagcanvas) {
@@ -394,48 +421,3 @@ $(document).ready(function() {
  $('#categories_block_left ul li a').prepend('<i class="icon-caret-right"></i>');
  })
  */
-
-
-
-jQuery(document).ready(function() {
-    $(".currencies_ul a").click(function() {
-        var url = location.href;
-        if (url.indexOf('?') == -1) {
-            url += '?';
-        } else {
-            url += '&';
-        }
-        location.href = url + 'currency=' + $(this).data('value');
-        return false;
-    });
-
-    /************bx-slider***************/
-    $('.bxslider').bxSlider({
-        pager: false,
-        controls: true,
-        slideMargin: 30,
-        minSlides: 1,
-        maxSlides: 6,
-        slideWidth: 130,
-        infiniteLoop: false,
-        moveSlides: 1,
-        nextText: '',
-        prevText: ''
-    });
-
-
-
-
-
-
-
-
-});
-
-
-/****************************************************************/
-
-
-
-
-;

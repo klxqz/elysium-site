@@ -170,7 +170,7 @@
                     <name locale="ru_RU">Приложение «Фото»</name>
                 </option>
             </options>
-            <value>photos</value>
+            <value>shop</value>
             <name locale="en_US">Source for block «Tags»</name>
             <name locale="ru_RU">Источник для блока «Теги»</name>
         </setting>
@@ -194,6 +194,22 @@
             <value>1</value>
             <name locale="en_US">Social sharing</name>
             <name locale="ru_RU">Социальные кнопки</name>
+        </setting>
+        
+        <setting var="type_menu" control_type="select">
+            <options>
+                <option value="dropdown">
+                    <name locale="en_US">Dropdown menu</name>
+                    <name locale="ru_RU">Выпадающее меню</name>
+                </option>
+                <option value="accordion">
+                    <name locale="en_US">Accordion menu</name>
+                    <name locale="ru_RU">Меню аккордеон</name>
+                </option>
+            </options>
+            <value>accordion</value>
+            <name locale="en_US">Menu type</name>
+            <name locale="ru_RU">Тип меню</name>
         </setting>
     </settings>
 </theme>
