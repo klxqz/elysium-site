@@ -5,6 +5,21 @@
 {/if}
 
 {if !empty($filters)}  
+    <script type="text/javascript">
+    {if !empty($theme_settings.filter_slider)}
+    load_arr.push('{$wa_url}wa-content/css/jquery-ui/base/jquery.ui.theme.css');
+    load_arr.push('{$wa_url}wa-content/css/jquery-ui/base/jquery.ui.slider.css');
+    load_arr.push('{$wa_url}wa-content/js/jquery-ui/jquery.ui.core.min.js');
+    load_arr.push('{$wa_url}wa-content/js/jquery-ui/jquery.ui.widget.min.js');
+    load_arr.push('{$wa_url}wa-content/js/jquery-ui/jquery.ui.mouse.min.js');
+    load_arr.push('{$wa_url}wa-content/js/jquery-ui/jquery.ui.slider.min.js');
+    {/if}
+
+    complete_functions['initFilterSlider'] = function() {
+        $.elysiumShop.initFilterSlider();
+    };
+</script>
+    
     <section id="layered_block_left" class="block column_box">
         <h3 class="toggle"><span>Подбор по параметрам</span></h3>
         <div class="block_content filters{if !empty($theme_settings.ajax_filters)} ajax{/if}">

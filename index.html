@@ -1,84 +1,37 @@
 <!DOCTYPE HTML>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 " lang="ru"> <![endif]-->
-<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8 ie7" lang="ru"> <![endif]-->
-<!--[if IE 8]><html class="no-js lt-ie9 ie8" lang="ru"> <![endif]-->
-<!--[if gt IE 8]> <html class="no-js ie9" lang="ru"> <![endif]-->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru">
     <head>        
-
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <title>{$wa->title()|escape}</title>
         <meta name="Keywords" content="{$wa->meta('keywords')|escape}" />
         <meta name="Description" content="{$wa->meta('description')|escape}" />
-
         {if $wa->isMobile()}
             <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=0;" />
         {/if}
         {if !empty($canonical)}<link rel="canonical" href="{$canonical}"/>{/if}
-
-        <!-- css -->
-
-
-        <link href="{$wa_theme_url}css/bootstrap.min.css"  rel="stylesheet" type="text/css" media="all"/>
-        <link href="{$wa_theme_url}css/font.css"  rel="stylesheet" type="text/css" media="all"/>
-        <link href="{$wa_theme_url}elysium.css?v{$wa_theme_version}" rel="stylesheet" type="text/css"/>
-        {if $wa->shop && $wa->shop->currency() == 'RUB'} <link href="{$wa_url}wa-content/font/ruble/arial/fontface.css" rel="stylesheet" type="text/css" />{/if}
-        {$wa->css()} {* links active plugins CSS *}
-
-        <!-- js -->
         <script type="text/javascript" src="{$wa_url}wa-content/js/jquery/jquery-1.8.2.min.js"></script>
-        <script type="text/javascript" src="{$wa_theme_url}elysium.js?v{$wa_theme_version}"></script>    
-
+        <style>
+            body {
+                background-image: url();
+            }
+        </style>
+        <!-- css -->
+        {$wa->css()} {* links active plugins CSS *}
+        <!-- js -->
         {$wa->js()} {* links active plugins JS *}
-
-
-        <link href="{$wa_theme_url}responsive.css"  rel="stylesheet" type="text/css" media="all"/>
-        <link href="{$wa_theme_url}jquery.bxslider.css"  rel="stylesheet" type="text/css" media="all"/>
-        <link href="{$wa_theme_url}css/uniform.default.min.css?v{$wa_theme_version}" rel="stylesheet" type="text/css"/>
-        <script src="{$wa_theme_url}js/jquery.nivo.slider.pack.js" ></script>
-        <script src="{$wa_theme_url}js/jquery.uniform.min.js" ></script>
-        <script src="{$wa_theme_url}js/jquery.bxslider.min.js" ></script>
-        {if !empty($theme_settings.tagcanvas)}
-            <script src="{$wa_theme_url}js/jquery.tagcanvas.min.js" ></script>
-        {/if}
-
-        {if $theme_settings.type_menu == 'accordion'}
-            <script type="text/javascript" src="{$wa_theme_url}js/jquery.accordion.js"></script>
-        {elseif $theme_settings.type_menu == 'dropdown'}
-            <script type="text/javascript" src="{$wa_theme_url}js/superfish.js"></script>
-            <link href="{$wa_theme_url}css/superfish.css"  rel="stylesheet" type="text/css" media="all"/>
-            <link href="{$wa_theme_url}css/superfish-vertical.css"  rel="stylesheet" type="text/css" media="all"/>
-        {/if}
-
-
-
         <script type="text/javascript">
-            $(function() {
-                $.elysiumSite.init({
-                    tagcanvas: {$theme_settings.tagcanvas},
-                    cartscroll: {$theme_settings.cartscroll},
-                    upscroll: {$theme_settings.upscroll},
-                    photo_block_slider: {$theme_settings.photo_block_slider},
-                    news_block_slider: {$theme_settings.news_block_slider}
-                });
-            });</script>
-
+            var complete_functions = {};
+            var load_arr = [];
+        </script>
         <script>
             ajaxcart_allowed = 1;
         </script>
 
-
-
-
-
-
         {include file="`$wa_active_theme_path`/head.html" inline}
 
         {$wa->headJs()} {* links Google Analytics tracking code and current site's custom JS (Site app) *}
-
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
         <meta name="apple-mobile-web-app-capable" content="yes"/>
-        <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'/>
         <script>
             if (navigator.userAgent.match(/Android/i)) {
                 var viewport = document.querySelector("meta[name=viewport]");
@@ -88,8 +41,6 @@
                 window.scrollTo(0, 1);
             }
         </script>
-
-
     </head>
     <body>
         <div class="page_wrapper_1 clearfix">
@@ -98,14 +49,11 @@
                     <div class="pluso" data-background="#ebebeb" data-options="medium,square,line,vertical,nocounter,theme=01" data-services="vkontakte,odnoklassniki,facebook,twitter,google,moimir,email,print"></div>
                 </div>
             {/if}
-
             <header id="header">
                 <div id="header_right" class="container">
                     <a id="header_logo" href="{$wa_url}"  title="На главную">
                         <img class="logo" src="{$wa_theme_url}{$theme_settings.logo}" />
                     </a>
-
-
                     {if isset($currencies) && count($currencies) > 1}    
                         <section id="currencies_block_top" class="header-box header-button">
                             <span class="block-name">Валюта</span>
@@ -121,7 +69,6 @@
                                     {/if}
                                     <i class="arrow_header_top icon-angle-down"></i>
                                 </p>
-
                                 <ul id="first-currencies" class="currencies_ul list_header">
                                     {foreach $currencies as $c_code => $c}
                                         {if $c_code=='RUB'}
@@ -161,8 +108,6 @@
                             </ul>
                         </div>
                     </section>
-
-
                     {if $wa->getUrl('shop/frontend/search')} 
                         <section id="search_block_top" class="header-box">
                             <form method="get" action="{$wa->getUrl('shop/frontend/search')}" id="searchbox">
@@ -174,8 +119,7 @@
                             </form>
                         </section>
                     {/if}
-
-
+                    
                     {if $wa->isAuthEnabled()}
                         <section class="blockuserinfo header-box">
                             <!-- auth links -->
@@ -197,8 +141,6 @@
                         </section>
                     {/if}
 
-
-
                     {if $wa->shop}
                         {$cart = $wa->shop->cart()}
                         {$cart_total = $wa->shop->cart->total()}
@@ -215,11 +157,9 @@
                                             (пусто)
                                         {/if}
                                     </span>
-
                                     <i class="opancart icon-angle-down"></i>
                                 </a>
                             </div>
-
                             <section id="cart_block" class="block column_box exclusive">
                                 <h4><span>[s`Shopping cart`]</span><i class="column_icon_toggle icon-plus-sign"></i></h4>
                                 <div class="block_content toggle_content">
@@ -275,9 +215,6 @@
                             </section>
                         </section>
                     {/if}
-
-
-
                 </div>
                 {if $wa->shop && $theme_settings.source_main_menu == 'shop_categories'}
                     <div class="menu_wrapper">
@@ -315,17 +252,10 @@
                 </div>
             </div>
         {/if}
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $('#menu-custom li:has(ul)').addClass('hasSub');
-            });
-        </script>
     </header>
 </div>
 <div class="page_wrapper_2 clearfix">
     <div id="columns" class="container">
-
-        <!-- navigation breadcrumbs -->
         {if isset($breadcrumbs) && $breadcrumbs}    
             <div class="breadcrumb">
                 <div class="breadcrumb_inset">
@@ -339,18 +269,15 @@
                 </div>
             </div>
         {/if}
-
         <div class="row">
             {if !empty($theme_settings.show_sidebar)}
                 <div id="left_column" class="col-xs-12 col-sm-3 column">
                     {include file="sidebar.html" inline}
                 </div>
             {/if}
-
             <div id="center_column" class="center_column col-xs-12 col-sm-{if !empty($theme_settings.show_sidebar)}9{else}12{/if} clearfix">
                 {include file="`$wa_active_theme_path`/content.html" inline}
             </div>
-
         </div>
     </div>
 </div>
@@ -358,7 +285,6 @@
 <div class="page_wrapper_3 clearfix">
     <footer id="footer" class="container">
         <div class="row modules">
-
             {if $wa->shop}
                 <section class="col-sm-3 block block_category_footer">
                     <h4>Категории<i class="icon-plus-sign"></i></h4>
@@ -367,7 +293,6 @@
             {wa_print_tree tree=$wa->shop->categories(0, 0, true) class="list-footer" selected=$selected_category unfolded=false  elem ='<a href=":url" title=":name">:name</a>'}
         </section>
     {/if}
-
     <section class="block blockcms_footer col-sm-3">
         <h4 class="toggle">Информация<i class="icon-plus-sign"></i></h4>
             {if $wa->shop && $theme_settings.source_footer_info == 'shop_pages' && $wa->shop->pages()}
@@ -448,7 +373,64 @@
 </footer>
 {if !empty($theme_settings.upscroll)}
     <a title="Прокрутить вверх" href="#" id="scrollUp" ><i class="icon-arrow-up"></i></a>
-    {/if}
+
+{/if}
 </div>
+<script type="text/javascript" src="{$wa_theme_url}js/yepnope.1.5.4-min.js"></script>
+<script type="text/javascript">
+    complete_functions['initSite'] = function() {
+        $.elysiumSite.init({
+            tagcanvas: {$theme_settings.tagcanvas},
+            cartscroll: {$theme_settings.cartscroll},
+            upscroll: {$theme_settings.upscroll},
+            photo_block_slider: {$theme_settings.photo_block_slider},
+            news_block_slider: {$theme_settings.news_block_slider},
+            type_menu: '{$theme_settings.type_menu}'
+        });
+    };
+    load_arr.push('{$wa_theme_url}css/bootstrap.min.css','{$wa_theme_url}css/font.css','{$wa_theme_url}elysium.css','{$wa_theme_url}responsive.css','{$wa_theme_url}css/jquery.bxslider.css');
+    load_arr.push('{$wa_theme_url}css/uniform.default.min.css');
+    {if $wa->shop && $wa->shop->currency() == 'RUB'}
+    load_arr.push('{$wa_url}wa-content/font/ruble/arial/fontface.css');
+    {/if}
+    load_arr.push('{$wa_theme_url}elysium.js');
+    load_arr.push('{$wa_theme_url}js/jquery.nivo.slider.pack.js');
+    load_arr.push('{$wa_theme_url}js/jquery.uniform.min.js');
+    load_arr.push('{$wa_theme_url}js/jquery.bxslider.min.js');
+    {if !empty($theme_settings.tagcanvas)}
+    load_arr.push('{$wa_theme_url}js/jquery.tagcanvas.min.js');
+    {/if}
+    {if $theme_settings.type_menu == 'accordion'}
+    load_arr.push('{$wa_theme_url}js/jquery.accordion.js');
+    {elseif $theme_settings.type_menu == 'dropdown'}
+    load_arr.push('{$wa_theme_url}js/superfish.js');
+    load_arr.push('{$wa_theme_url}css/superfish.css');
+    {/if}
+</script>
+<script type="text/javascript">
+    yepnope({
+        load: load_arr,
+        complete: function() {
+            for (var i in complete_functions) {
+                complete_functions[i]();
+            }
+        }
+    });
+</script>
+{if 1}
+    <script type="text/javascript" src="{$wa_theme_url}js/jquery.queryloader2.min.js"></script>
+    <script  type="text/javascript">
+        $(function() {
+            $("body").queryLoader2({
+                barColor: "#FFF",
+                backgroundColor: "#000",
+                percentage: true,
+                barHeight: 1,
+                completeAnimation: "grow",
+                minimumTime: 10
+            });
+        });
+    </script>
+{/if}
 </body>
 </html>
