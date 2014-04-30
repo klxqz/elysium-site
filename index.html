@@ -119,7 +119,7 @@
                             </form>
                         </section>
                     {/if}
-                    
+
                     {if $wa->isAuthEnabled()}
                         <section class="blockuserinfo header-box">
                             <!-- auth links -->
@@ -175,30 +175,26 @@
 
                                     <div id="cart_block_list" class="expanded">
                                         {$cart_items = $cart->items()}
-                                        {if $cart_items}
-                                            <dl class="products clearfix">
-                                                {foreach $cart_items as $item}
-                                                    <dt class="clearfix first_item last_item" id="cart_block_product_2_0_0">
-                                                        <!-- add custom -->
-                                                        <a href="{$wa->shop->productUrl($item.product)}" class="cart-images">
-                                                            {$wa->shop->productImgHtml($item.product, '100x100', ['itemprop' => 'image', 'alt' => $item.name])}  
-                                                        </a>
 
-                                                        <span class="quantity-formated"><span class="quantity">{$item.quantity}</span>x</span>	
-                                                        <a href="{$wa->shop->productUrl($item.product)}" class="cart_block_product_name product_link">
-                                                            {$item.name|escape}
-                                                        </a>           
+                                        <dl class="products clearfix">
+                                            {foreach $cart_items as $item}
+                                                <dt data-id="{$item.id}">
+                                                    <a href="{$wa->shop->productUrl($item.product)}" class="cart-images">
+                                                        {$wa->shop->productImgHtml($item.product, '100x100', ['itemprop' => 'image', 'alt' => $item.name])}  
+                                                    </a>
+                                                    <span class="quantity-formated"><span class="quantity">{$item.quantity}</span>x</span>	
+                                                    <span class="price">
+                                                        {wa_currency_html($item.price,$wa->shop->currency())}								
+                                                    </span>
+                                                    <a href="#" class="delete"><i class="icon-trash"></i></a>
+                                                    <a href="{$wa->shop->productUrl($item.product)}" class="cart_block_product_name product_link">
+                                                        {$item.name|escape}
+                                                    </a>  
+                                                </dt>
+                                            {/foreach}
+                                        </dl>
 
-                                                        <span class="price">
-                                                            {wa_currency_html($item.price,$wa->shop->currency())}								
-                                                        </span>
-                                                    </dt>
-                                                {/foreach}
-                                            </dl>
-                                        {else}
-                                            <p class="cart_no_products" id="cart_block_no_products">Нет товаров</p>
-                                        {/if}
-
+                                        <p {if $cart_items}style="display: none;"{/if} class="cart_no_products" id="cart_block_no_products">Нет товаров</p>
                                         <div class="cart-prices">
                                             <div class="cart-prices-block">
                                                 <span id="cart_block_total" class="price ajax_block_cart_total">{wa_currency_html($cart_total, $wa->shop->currency())}</span>
@@ -385,10 +381,11 @@
             upscroll: {$theme_settings.upscroll},
             photo_block_slider: {$theme_settings.photo_block_slider},
             news_block_slider: {$theme_settings.news_block_slider},
-            type_menu: '{$theme_settings.type_menu}'
+            type_menu: '{$theme_settings.type_menu}',
+            shop_cart_url: '{if $wa->shop}{$wa->getUrl('shop/frontend/cart')}{/if}'
         });
     };
-    load_arr.push('{$wa_theme_url}css/bootstrap.min.css','{$wa_theme_url}css/font.css','{$wa_theme_url}elysium.css','{$wa_theme_url}responsive.css','{$wa_theme_url}css/jquery.bxslider.css');
+    load_arr.push('{$wa_theme_url}css/bootstrap.min.css', '{$wa_theme_url}css/font.css', '{$wa_theme_url}elysium.css', '{$wa_theme_url}responsive.css', '{$wa_theme_url}css/jquery.bxslider.css');
     load_arr.push('{$wa_theme_url}css/uniform.default.min.css');
     {if $wa->shop && $wa->shop->currency() == 'RUB'}
     load_arr.push('{$wa_url}wa-content/font/ruble/arial/fontface.css');

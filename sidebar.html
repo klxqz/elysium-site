@@ -6,20 +6,20 @@
 
 {if !empty($filters)}  
     <script type="text/javascript">
-    {if !empty($theme_settings.filter_slider)}
-    load_arr.push('{$wa_url}wa-content/css/jquery-ui/base/jquery.ui.theme.css');
-    load_arr.push('{$wa_url}wa-content/css/jquery-ui/base/jquery.ui.slider.css');
-    load_arr.push('{$wa_url}wa-content/js/jquery-ui/jquery.ui.core.min.js');
-    load_arr.push('{$wa_url}wa-content/js/jquery-ui/jquery.ui.widget.min.js');
-    load_arr.push('{$wa_url}wa-content/js/jquery-ui/jquery.ui.mouse.min.js');
-    load_arr.push('{$wa_url}wa-content/js/jquery-ui/jquery.ui.slider.min.js');
-    {/if}
+        {if !empty($theme_settings.filter_slider)}
+        load_arr.push('{$wa_url}wa-content/css/jquery-ui/base/jquery.ui.theme.css');
+        load_arr.push('{$wa_url}wa-content/css/jquery-ui/base/jquery.ui.slider.css');
+        load_arr.push('{$wa_url}wa-content/js/jquery-ui/jquery.ui.core.min.js');
+        load_arr.push('{$wa_url}wa-content/js/jquery-ui/jquery.ui.widget.min.js');
+        load_arr.push('{$wa_url}wa-content/js/jquery-ui/jquery.ui.mouse.min.js');
+        load_arr.push('{$wa_url}wa-content/js/jquery-ui/jquery.ui.slider.min.js');
+        {/if}
 
-    complete_functions['initFilterSlider'] = function() {
-        $.elysiumShop.initFilterSlider();
-    };
-</script>
-    
+        complete_functions['initFilterSlider'] = function() {
+            $.elysiumShop.initFilterSlider();
+        };
+    </script>
+
     <section id="layered_block_left" class="block column_box">
         <h3 class="toggle"><span>Подбор по параметрам</span></h3>
         <div class="block_content filters{if !empty($theme_settings.ajax_filters)} ajax{/if}">
@@ -90,23 +90,28 @@
 {/if} 
 
 
-{if isset($category)}{$selected_category=$category.id}{else}{$selected_category=null}{/if}
-{$categories = $wa->shop->categories(0, null, true)}
-{if $categories}
+{if isset($category.id)}{$selected_category=$category.id}{else}{$selected_category=null}{/if}
+{if isset($page.id)}{$selected_page=$page.id}{else}{$selected_page=null}{/if}
+
+{if $wa->shop && $wa->shop->categories(0, null, true) && $theme_settings.source_sidebar_menu == 'shop_categories'}
     <section id="layered_block_left" class="block column_box">
         <h3 class="toggle"><span>Каталог</span></h3>
         <div class="block_content">
-            {wa_print_tree tree=$categories class="{$menu_class}" selected=$selected_category unfolded=true collapsible_class='parent'  elem ='<a href=":url" title=":name">:name</a>'}
+            {wa_print_tree tree=$wa->shop->categories(0, null, true) class="{$menu_class}" selected=$selected_category unfolded=true collapsible_class='parent'  elem ='<a href=":url" title=":name">:name</a>'}
         </div>
     </section>
-{/if}
-
-{if isset($page)}{$selected_page=$page.id}{else}{$selected_page=null}{/if}
-{if $wa->shop && $wa->shop->pages()}
+{elseif $wa->shop && $wa->shop->pages() && $theme_settings.source_sidebar_menu == 'shop_pages'}
     <section class="block column_box" id="info_block_left">
         <h4 class="title_block"><span>Информация</span><i class="column_icon_toggle icon-plus-sign"></i></h4>
         <div class="block_content toggle_content">
             {wa_print_tree tree=$wa->shop->pages() class="{$menu_class}" selected=$selected_page unfolded=true collapsible_class='parent'  elem ='<a href=":url" title=":name">:name</a>'}
+        </div>
+    </section>
+{elseif $theme_settings.source_sidebar_menu == 'site_pages'}
+    <section class="block column_box" id="info_block_left">
+        <h4 class="title_block"><span>Информация</span><i class="column_icon_toggle icon-plus-sign"></i></h4>
+        <div class="block_content toggle_content">
+            {wa_print_tree tree=$wa->site->pages() class="{$menu_class}" selected=$selected_page unfolded=true collapsible_class='parent'  elem ='<a href=":url" title=":name">:name</a>'}
         </div>
     </section>
 {/if}

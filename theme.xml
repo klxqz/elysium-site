@@ -66,7 +66,7 @@
         <setting var="phone" control_type="text">
             <value>+7-999-999-99-99</value>
             <name locale="en_US">Phone</name>
-            <name locale="ru_RU">Телефон</name>
+            <name locale="ru_RU">Телефон. Если у Вас установлено приложение «Магазин» вместо этого номера будет выводиться номер из настроек магазина.</name>
         </setting>
         <setting var="footer_facebook" control_type="text">
             <value>#</value>
@@ -96,6 +96,30 @@
             <value>shop_categories</value>
             <name locale="en_US">Source for the main top menu</name>
             <name locale="ru_RU">Источник для главного верхнего меню</name>
+        </setting>
+        
+        <setting var="source_sidebar_menu" control_type="select">
+            <options>
+                <option value="none">
+                    <name locale="en_US">None</name>
+                    <name locale="ru_RU">Не использовать</name>
+                </option>
+                <option value="site_pages">
+                    <name locale="en_US">Application «Site» - pages</name>
+                    <name locale="ru_RU">Приложение «Сайт» - страницы</name>
+                </option>
+                <option value="shop_pages">
+                    <name locale="en_US">Application «Shop» - pages</name>
+                    <name locale="ru_RU">Приложение «Магазин» - страницы</name>
+                </option>
+                <option value="shop_categories">
+                    <name locale="en_US">Application «Shop» - categories</name>
+                    <name locale="ru_RU">Приложение «Магазин» - категории</name>
+                </option>
+            </options>
+            <value>site_pages</value>
+            <name locale="en_US">Source for sidebar menu</name>
+            <name locale="ru_RU">Источник для бокового меню</name>
         </setting>
         <setting var="source_footer_info" control_type="select">
             <options>
