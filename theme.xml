@@ -57,11 +57,11 @@
 ]]>
     </about>
     <settings>
-        
         <setting var="logo" control_type="image">
-            <value>logo.jpg</value>
-            <name locale="en_US">Logo</name>
-            <name locale="ru_RU">Логотип</name>
+            <value>img/logo.png</value>
+            <filename>img/logo.*</filename>
+            <name locale="en_US">Company Logo</name>
+            <name locale="ru_RU">Логотип компании</name>
         </setting>
         <setting var="phone" control_type="text">
             <value>+7-999-999-99-99</value>
@@ -235,5 +235,13 @@
             <name locale="en_US">Menu type</name>
             <name locale="ru_RU">Тип меню</name>
         </setting>
+        
+        <setting var="queryLoader2" control_type="checkbox">
+            <value>1</value>
+            <name locale="en_US">Dimming the screen and display the progress of the download page</name>
+            <name locale="ru_RU">Затемнение экрана и отображение хода загрузки страницы</name>
+        </setting>
+        
     </settings>
+    
 </theme>
