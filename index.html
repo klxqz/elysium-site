@@ -51,12 +51,12 @@
             {/if}
             <header id="header">
                 <div id="header_right" class="container">
-                    <a id="header_logo" href="{$wa_url}"  title="На главную">
+                    <a id="header_logo" href="{$wa_url}"  title="[`To home`]">
                         <img class="logo" src="{$wa_theme_url}{$theme_settings.logo}" />
                     </a>
                     {if isset($currencies) && count($currencies) > 1}    
                         <section id="currencies_block_top" class="header-box header-button">
-                            <span class="block-name">Валюта</span>
+                            <span class="block-name">[`Currency`]</span>
                             <form id="setCurrency" action="#"  method="post">
                                 <p class="inner-carrencies icon_wrapp">
                                     <input type="hidden" name="id_currency" id="id_currency" value=""/>
@@ -85,7 +85,6 @@
                                             </li>
                                         {/if}
                                     {/foreach}
-
                                 </ul>
                             </form>
                         </section>
@@ -112,10 +111,10 @@
                         <section id="search_block_top" class="header-box">
                             <form method="get" action="{$wa->getUrl('shop/frontend/search')}" id="searchbox">
                                 <p>
-                                    <label for="search_query_top">Поиск</label>
+                                    <label for="search_query_top">[`Search`]</label>
                                     <input class="search_query" type="search" name="query" {if !empty($query)}value="{$query}"{/if} placeholder="[s`Find products`]" />
                                 </p>
-                                <a class="btn btn-default button btn_add_cart" href="javascript:document.getElementById('searchbox').submit();"><i class="icon-search"></i><span>Поиск</span></a>
+                                <a class="btn btn-default button btn_add_cart" href="javascript:document.getElementById('searchbox').submit();"><i class="icon-search"></i><span>[`Search`]</span></a>
                             </form>
                         </section>
                     {/if}
@@ -147,14 +146,13 @@
                         {$cart_count = $wa->shop->cart->count()}   
                         <section id="header_user" class=" blockuserinfo-cart header-box ">
                             <div id="shopping_cart">
-                                <a href="#"  title="Просмотреть мою корзину" rel="nofollow">
+                                <a href="#"  title="[`View my cart`]" rel="nofollow">
                                     <span class="shopping_cart_title">[s`Shopping cart`]:</span>
-
                                     <span class="cart-total ajax_cart_quantity">
                                         {if $cart_count}
-                                            товаров: {$cart_count}
+                                            [`goods`]: {$cart_count}
                                         {else}
-                                            (пусто)
+                                            [`(empty)`]
                                         {/if}
                                     </span>
                                     <i class="opancart icon-angle-down"></i>
@@ -163,19 +161,16 @@
                             <section id="cart_block" class="block column_box exclusive">
                                 <h4><span>[s`Shopping cart`]</span><i class="column_icon_toggle icon-plus-sign"></i></h4>
                                 <div class="block_content toggle_content">
-
                                     <div id="cart_block_summary" class="collapsed">
                                         <span class="ajax_cart_quantity" style="display:none;">0</span>
-                                        <span class="ajax_cart_product_txt_s" style="display:none">товары</span>
-                                        <span class="ajax_cart_product_txt">товар</span>
+                                        <span class="ajax_cart_product_txt_s" style="display:none">[`goods`]</span>
+                                        <span class="ajax_cart_product_txt">[`good`]</span>
                                         <span class="ajax_cart_total" style="display:none">
                                         </span>
-                                        <span class="ajax_cart_no_product">(пусто)</span>
+                                        <span class="ajax_cart_no_product">[`(empty)`]</span>
                                     </div>
-
                                     <div id="cart_block_list" class="expanded">
                                         {$cart_items = $cart->items()}
-
                                         <dl class="products clearfix">
                                             {foreach $cart_items as $item}
                                                 <dt data-id="{$item.id}">
@@ -193,18 +188,17 @@
                                                 </dt>
                                             {/foreach}
                                         </dl>
-
-                                        <p {if $cart_items}style="display: none;"{/if} class="cart_no_products" id="cart_block_no_products">Нет товаров</p>
+                                        <p {if $cart_items}style="display: none;"{/if} class="cart_no_products" id="cart_block_no_products">[`No products`]</p>
                                         <div class="cart-prices">
                                             <div class="cart-prices-block">
                                                 <span id="cart_block_total" class="price ajax_block_cart_total">{wa_currency_html($cart_total, $wa->shop->currency())}</span>
-                                                <span>Итого</span>
+                                                <span>[`Total`]</span>
                                             </div>
                                         </div>
                                         <p id="cart-buttons" class="">
-                                            <a href="{$wa->getUrl('shop/frontend/cart')}"  class="button_mini btn btn-default" title="Посмотреть корзину" rel="nofollow">Корзина</a> 
+                                            <a href="{$wa->getUrl('shop/frontend/cart')}"  class="button_mini btn btn-default" title="Посмотреть корзину" rel="nofollow">[s`Shopping cart`]</a> 
                                             <br /><br />
-                                            <a href="{$wa->getUrl('shop/frontend/checkout')}"  id="button_order_cart" class="exclusive btn btn-default" title="Оформление заказа" rel="nofollow">Оформление заказа</a>
+                                            <a href="{$wa->getUrl('shop/frontend/checkout')}"  id="button_order_cart" class="exclusive btn btn-default" title="[`Checkout`]" rel="nofollow">[`Checkout`]</a>
                                         </p>
                                     </div>
                                 </div>
@@ -216,7 +210,7 @@
                     <div class="menu_wrapper">
                         <div class="container">
                             <div id="menu-wrap" class="clearfix desktop">
-                                <div id="menu-trigger">Категории<i class="menu-icon icon-plus-sign-alt"></i></div>                      
+                                <div id="menu-trigger">[`Catalog`]<i class="menu-icon icon-plus-sign-alt"></i></div>                      
                             {if isset($category)}{$selected_category=$category.id}{else}{$selected_category=null}{/if}
                             {$categories = $wa->shop->categories(0, null, true)}
                             {if $categories}
@@ -229,7 +223,7 @@
             <div class="menu_wrapper">
                 <div class="container">
                     <div id="menu-wrap" class="clearfix desktop">
-                        <div id="menu-trigger">Информация<i class="menu-icon icon-plus-sign-alt"></i></div>
+                        <div id="menu-trigger">[`Information`]<i class="menu-icon icon-plus-sign-alt"></i></div>
                             {if $wa->shop->pages()}
                                 {wa_print_tree tree=$wa->shop->pages() attrs = 'id="menu-custom"' elem ='<a href=":url">:name</a>' selected=ifset($page.id)}
                             {/if}
@@ -240,7 +234,7 @@
             <div class="menu_wrapper">
                 <div class="container">
                     <div id="menu-wrap" class="clearfix desktop">
-                        <div id="menu-trigger">Информация<i class="menu-icon icon-plus-sign-alt"></i></div>
+                        <div id="menu-trigger">[`Information`]<i class="menu-icon icon-plus-sign-alt"></i></div>
                             {if $wa->site->pages()}
                                 {wa_print_tree tree=$wa->site->pages() attrs = 'id="menu-custom"' elem ='<a href=":url">:name</a>' selected=ifset($page.id)}
                             {/if}
@@ -283,14 +277,14 @@
         <div class="row modules">
             {if $wa->shop}
                 <section class="col-sm-3 block block_category_footer">
-                    <h4>Категории<i class="icon-plus-sign"></i></h4>
+                    <h4>[`Catalog`]<i class="icon-plus-sign"></i></h4>
                     <!-- category tree -->
             {if isset($category)}{$selected_category=$category.id}{else}{$selected_category=null}{/if}
             {wa_print_tree tree=$wa->shop->categories(0, 0, true) class="list-footer" selected=$selected_category unfolded=false  elem ='<a href=":url" title=":name">:name</a>'}
         </section>
     {/if}
     <section class="block blockcms_footer col-sm-3">
-        <h4 class="toggle">Информация<i class="icon-plus-sign"></i></h4>
+        <h4 class="toggle">[`Information`]<i class="icon-plus-sign"></i></h4>
             {if $wa->shop && $theme_settings.source_footer_info == 'shop_pages' && $wa->shop->pages()}
             <ul class="list-footer toggle_content clearfix">
                 {foreach $wa->shop->pages() as $page}
@@ -312,12 +306,12 @@
 
     {if $wa->isAuthEnabled()}
         <section class="block blockmyaccountfooter col-sm-3">
-            <h4>Моя учетная запись<i class="icon-plus-sign"></i></h4>
+            <h4>[`My Account`]<i class="icon-plus-sign"></i></h4>
             <ul class="list-footer toggle_content clearfix">
                 {if $wa->user()->isAuth()}
                     {if $wa->shop}
                         <li><a href="{$wa->getUrl('shop/frontend/my')}">[s`My account`]</a></li>
-                        <li><a href="{$wa->getUrl('shop/frontend/myOrders')}" >Мои заказы</a></li>
+                        <li><a href="{$wa->getUrl('shop/frontend/myOrders')}" >[`My orders`]</a></li>
                         {if shopAffiliate::isEnabled()}<li><a href="{$wa->getUrl('/frontend/myAffiliate')}">[`Affiliate program`]</a></li>{/if}
                         {else}
                         <li>{$wa->user('name')}</li>
@@ -336,13 +330,13 @@
             {if $wa->shop && $wa->shop->settings('phone')}
                 <li class="htmlcontent-item">
                     <div class="item-html">
-                        <h3>Tel: {$wa->shop->settings('phone')}</h3>
+                        <h3>[`Tel`]: {$wa->shop->settings('phone')}</h3>
                     </div>
                 </li>
             {elseif !empty($theme_settings.phone)}
                 <li class="htmlcontent-item">
                     <div class="item-html">
-                        <h3>Tel: {$theme_settings.phone}</h3>
+                        <h3>[`Tel`]: {$theme_settings.phone}</h3>
                     </div>
                 </li>
             {/if}
@@ -368,7 +362,7 @@
 </div>
 </footer>
 {if !empty($theme_settings.upscroll)}
-    <a title="Прокрутить вверх" href="#" id="scrollUp" ><i class="icon-arrow-up"></i></a>
+    <a title="[`Scroll up`]" href="#" id="scrollUp" ><i class="icon-arrow-up"></i></a>
 
 {/if}
 </div>
@@ -382,17 +376,22 @@
             photo_block_slider: {$theme_settings.photo_block_slider},
             news_block_slider: {$theme_settings.news_block_slider},
             type_menu: '{$theme_settings.type_menu}',
-            shop_cart_url: '{if $wa->shop}{$wa->getUrl('shop/frontend/cart')}{/if}'
+            shop_cart_url: '{if $wa->shop}{$wa->getUrl('shop/frontend/cart')}{/if}',
+            uniform: {$theme_settings.uniform}
         });
     };
     load_arr.push('{$wa_theme_url}css/bootstrap.min.css', '{$wa_theme_url}css/font.css', '{$wa_theme_url}elysium.css', '{$wa_theme_url}responsive.css', '{$wa_theme_url}css/jquery.bxslider.css');
-    load_arr.push('{$wa_theme_url}css/uniform.default.min.css');
+    {if $theme_settings.uniform}
+    load_arr.push('{$wa_theme_url}css/uniform/{$theme_settings.uniform_theme}/css/uniform.{$theme_settings.uniform_theme}.min.css');
+    {/if}
     {if $wa->shop && $wa->shop->currency() == 'RUB'}
     load_arr.push('{$wa_url}wa-content/font/ruble/arial/fontface.css');
     {/if}
     load_arr.push('{$wa_theme_url}elysium.js');
     load_arr.push('{$wa_theme_url}js/jquery.nivo.slider.pack.js');
+    {if $theme_settings.uniform}
     load_arr.push('{$wa_theme_url}js/jquery.uniform.min.js');
+    {/if}
     load_arr.push('{$wa_theme_url}js/jquery.bxslider.min.js');
     {if !empty($theme_settings.tagcanvas)}
     load_arr.push('{$wa_theme_url}js/jquery.tagcanvas.min.js');
@@ -402,6 +401,9 @@
     {elseif $theme_settings.type_menu == 'dropdown'}
     load_arr.push('{$wa_theme_url}js/superfish.js');
     load_arr.push('{$wa_theme_url}css/superfish.css');
+    {/if}
+    {if $theme_settings.color_scheme}
+    load_arr.push('{$wa_theme_url}{$theme_settings.color_scheme}.css');
     {/if}
 </script>
 <script type="text/javascript">
@@ -413,7 +415,7 @@
             }
         }
     });
-</script>
+</script>   
 {if $theme_settings.queryLoader2}
     <script type="text/javascript" src="{$wa_theme_url}js/jquery.queryloader2.min.js"></script>
     <script  type="text/javascript">

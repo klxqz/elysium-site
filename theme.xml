@@ -242,6 +242,163 @@
             <name locale="ru_RU">Затемнение экрана и отображение хода загрузки страницы</name>
         </setting>
         
+        
+        
+        <setting var="override_color" control_type="checkbox">
+            <value>1</value>
+            <name locale="en_US">Dimming the screen and display the progress of the download page</name>
+            <name locale="ru_RU">Затемнение экрана и отображение хода загрузки страницы</name>
+        </setting>
+        
+        <setting var="uniform" control_type="checkbox">
+            <value>1</value>
+            <name locale="en_US">Use styling form elements «uniform»</name>
+            <name locale="ru_RU">Использовать стилизацию элементов форм «uniform»</name>
+        </setting>
+        
+        <setting var="uniform_theme" control_type="select">
+            <options>
+                <option value="default">
+                    <name locale="en_US">default</name>
+                    <name locale="ru_RU">default</name>
+                </option>
+                <option value="aristo">
+                    <name locale="en_US">aristo</name>
+                    <name locale="ru_RU">aristo</name>
+                </option>
+                <option value="agent">
+                    <name locale="en_US">agent</name>
+                    <name locale="ru_RU">agent</name>
+                </option>
+                <option value="jeans">
+                    <name locale="en_US">jeans</name>
+                    <name locale="ru_RU">jeans</name>
+                </option>
+                
+            </options>
+            <value>default</value>
+            <name locale="en_US">Theme «uniform»</name>
+            <name locale="ru_RU">Тема оформления «uniform»</name>
+        </setting>
+
+        <setting var="color_scheme" control_type="select">
+            <value></value>
+            <name locale="en_US">Color scheme</name>
+            <name locale="ru_RU">Цветовая схема</name>
+            <options>
+                <option value="">
+                    <name locale="en_US">Black</name>
+                    <name locale="ru_RU">Черный</name>
+                </option>
+                <option value="green">
+                    <name locale="en_US">Green</name>
+                    <name locale="ru_RU">Зеленый</name>
+                </option>
+                <option value="blue">
+                    <name locale="en_US">Blue</name>
+                    <name locale="ru_RU">Голубой</name>
+                </option>
+                
+            </options>
+        </setting>
+        
+        
     </settings>
-    
+    <locales>
+        <locale>
+            <msgid>To home</msgid>
+            <msgstr locale="ru_RU">На главную</msgstr>
+        </locale>
+        <locale>
+            <msgid>Currency</msgid>
+            <msgstr locale="ru_RU">Валюта</msgstr>
+        </locale>
+        <locale>
+            <msgid>Search</msgid>
+            <msgstr locale="ru_RU">Поиск</msgstr>
+        </locale>
+        <locale>
+            <msgid>(empty)</msgid>
+            <msgstr locale="ru_RU">(пусто)</msgstr>
+        </locale>
+        <locale>
+            <msgid>goods</msgid>
+            <msgstr locale="ru_RU">товаров</msgstr>
+        </locale>
+        <locale>
+            <msgid>No products</msgid>
+            <msgstr locale="ru_RU">Нет товаров</msgstr>
+        </locale>
+        <locale>
+            <msgid>goods</msgid>
+            <msgstr locale="ru_RU">товары</msgstr>
+        </locale>
+        <locale>
+            <msgid>good</msgid>
+            <msgstr locale="ru_RU">товар</msgstr>
+        </locale>
+        <locale>
+            <msgid>Total</msgid>
+            <msgstr locale="ru_RU">Итог</msgstr>
+        </locale>
+        <locale>
+            <msgid>Checkout</msgid>
+            <msgstr locale="ru_RU">Оформление заказа</msgstr>
+        </locale>
+        <locale>
+            <msgid>Catalog</msgid>
+            <msgstr locale="ru_RU">Каталог</msgstr>
+        </locale>
+        <locale>
+            <msgid>Information</msgid>
+            <msgstr locale="ru_RU">Информация</msgstr>
+        </locale>
+        <locale>
+            <msgid>Scroll up</msgid>
+            <msgstr locale="ru_RU">Прокрутить вверх</msgstr>
+        </locale>
+        <locale>
+            <msgid>My orders</msgid>
+            <msgstr locale="ru_RU">Мои заказы</msgstr>
+        </locale>  
+        <locale>
+            <msgid>View my cart</msgid>
+            <msgstr locale="ru_RU">Посмотреть мою корзину</msgstr>
+        </locale>
+        <locale>
+            <msgid>Selection of parameters</msgid>
+            <msgstr locale="ru_RU">Подбор по параметрам</msgstr>
+        </locale> 
+        <locale>
+            <msgid>News</msgid>
+            <msgstr locale="ru_RU">Новости</msgstr>
+        </locale> 
+        <locale>
+            <msgid>All news...</msgid>
+            <msgstr locale="ru_RU">Все новости...</msgstr>
+        </locale>
+        <locale>
+            <msgid>Photos</msgid>
+            <msgstr locale="ru_RU">Фото</msgstr>
+        </locale>   
+        <locale>
+            <msgid>All photos...</msgid>
+            <msgstr locale="ru_RU">Все фото...</msgstr>
+        </locale>   
+        <locale>
+            <msgid>Tags</msgid>
+            <msgstr locale="ru_RU">Тэги</msgstr>
+        </locale> 
+        <locale>
+            <msgid>My Account</msgid>
+            <msgstr locale="ru_RU">Моя учетная запись</msgstr>
+        </locale>  
+        <locale>
+            <msgid>Tel</msgid>
+            <msgstr locale="ru_RU">Тел</msgstr>
+        </locale>        
+        
+        
+
+    </locales>
 </theme>

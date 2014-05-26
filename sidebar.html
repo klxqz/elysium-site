@@ -21,7 +21,7 @@
     </script>
 
     <section id="layered_block_left" class="block column_box">
-        <h3 class="toggle"><span>Подбор по параметрам</span></h3>
+        <h3 class="toggle"><span>[`Selection of parameters`]</span></h3>
         <div class="block_content filters{if !empty($theme_settings.ajax_filters)} ajax{/if}">
             <form method="get" action="{$wa->currentUrl()}" id="layered_form">
                 {foreach $filters as $fid => $filter}
@@ -95,21 +95,21 @@
 
 {if $wa->shop && $wa->shop->categories(0, null, true) && $theme_settings.source_sidebar_menu == 'shop_categories'}
     <section id="layered_block_left" class="block column_box">
-        <h3 class="toggle"><span>Каталог</span></h3>
+        <h3 class="toggle"><span>[`Catalog`]</span></h3>
         <div class="block_content">
             {wa_print_tree tree=$wa->shop->categories(0, null, true) class="{$menu_class}" selected=$selected_category unfolded=true collapsible_class='parent'  elem ='<a href=":url" title=":name">:name</a>'}
         </div>
     </section>
 {elseif $wa->shop && $wa->shop->pages() && $theme_settings.source_sidebar_menu == 'shop_pages'}
     <section class="block column_box" id="info_block_left">
-        <h4 class="title_block"><span>Информация</span><i class="column_icon_toggle icon-plus-sign"></i></h4>
+        <h4 class="title_block"><span>[`Information`]</span><i class="column_icon_toggle icon-plus-sign"></i></h4>
         <div class="block_content toggle_content">
             {wa_print_tree tree=$wa->shop->pages() class="{$menu_class}" selected=$selected_page unfolded=true collapsible_class='parent'  elem ='<a href=":url" title=":name">:name</a>'}
         </div>
     </section>
 {elseif $theme_settings.source_sidebar_menu == 'site_pages'}
     <section class="block column_box" id="info_block_left">
-        <h4 class="title_block"><span>Информация</span><i class="column_icon_toggle icon-plus-sign"></i></h4>
+        <h4 class="title_block"><span>[`Information`]</span><i class="column_icon_toggle icon-plus-sign"></i></h4>
         <div class="block_content toggle_content">
             {wa_print_tree tree=$wa->site->pages() class="{$menu_class}" selected=$selected_page unfolded=true collapsible_class='parent'  elem ='<a href=":url" title=":name">:name</a>'}
         </div>
@@ -119,7 +119,7 @@
 {if $wa->blog && $wa->blog->posts() && !empty($theme_settings.show_news_block)}
     {$latest_posts = $wa->blog->posts()}
     <section class="block column_box" id="news_block_left">
-        <h4 class="title_block"><span>Новости</span><i class="column_icon_toggle icon-plus-sign"></i></h4>
+        <h4 class="title_block"><span>[`News`]</span><i class="column_icon_toggle icon-plus-sign"></i></h4>
         <div class="block_content toggle_content">
             <ul class="posts">
                 {foreach $latest_posts as $post}
@@ -146,7 +146,7 @@
             {if $post@iteration == $theme_settings.number_news}{break}{/if}
         {/foreach}
     </ul>
-    <a class="button_large btn btn-default" style="margin: 0 auto; display: table;" href="{$wa->getUrl('blog')}">Все новости...</a>
+    <a class="button_large btn btn-default" style="margin: 0 auto; display: table;" href="{$wa->getUrl('blog')}">[`All news...`]</a>
 </div>
 </section>
 {/if}
@@ -155,7 +155,7 @@
 {if $wa->photos && $wa->photos->photos() && !empty($theme_settings.show_photo_block)}
     {$photos = $wa->photos->photos()}
     <section class="block column_box" id="photos_block_left">
-        <h4 class="title_block"><span>Фото</span><i class="column_icon_toggle icon-plus-sign"></i></h4>
+        <h4 class="title_block"><span>[`Photos`]</span><i class="column_icon_toggle icon-plus-sign"></i></h4>
         <div class="block_content toggle_content">
             <ul class="view-thumbs">
                 {foreach from=$photos item=photo}
@@ -177,7 +177,7 @@
                 {if $photo@iteration == $theme_settings.number_photos}{break}{/if}
             {/foreach}
         </ul>
-        <a class="button_large btn btn-default" href="{$wa->getUrl('photos')}">Все фото...</a>
+        <a class="button_large btn btn-default" href="{$wa->getUrl('photos')}">[`All photos...`]</a>
     </div>
 </section>
 {/if}
@@ -185,7 +185,7 @@
 
 {if $wa->shop && $wa->shop->tags() && $theme_settings.source_tag_cloud == 'shop'}
     <section id="tags_block_left" class="block tags_block column_box">
-        <h4><span>Тэги</span><i class="column_icon_toggle icon-plus-sign"></i></h4>
+        <h4><span>[`Tags`]</span><i class="column_icon_toggle icon-plus-sign"></i></h4>
         <div class="block_content toggle_content">
             {if !empty($theme_settings.tagcanvas)}
                 <div id="tag-cloud-canvas">
