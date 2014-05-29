@@ -10,6 +10,59 @@
         {/if}
         {if !empty($canonical)}<link rel="canonical" href="{$canonical}"/>{/if}
         <script type="text/javascript" src="{$wa_url}wa-content/js/jquery/jquery-1.8.2.min.js"></script>
+        {if $theme_settings.use_yepnope}
+            <script type="text/javascript">
+                var complete_functions = {};
+                var load_arr = [];
+            </script>
+        {else}
+            <link href="{$wa_theme_url}css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+            <link href="{$wa_theme_url}css/font.css" rel="stylesheet" type="text/css"/>
+            <link href="{$wa_theme_url}elysium.css" rel="stylesheet" type="text/css"/>
+            <link href="{$wa_theme_url}responsive.css" rel="stylesheet" type="text/css"/>
+            <link href="{$wa_theme_url}css/jquery.bxslider.css" rel="stylesheet" type="text/css"/>
+            {if $theme_settings.uniform}
+                <link href="{$wa_theme_url}css/uniform/{$theme_settings.uniform_theme}/css/uniform.{$theme_settings.uniform_theme}.min.css" rel="stylesheet" type="text/css"/>
+            {/if}
+            {if $wa->shop && $wa->shop->currency() == 'RUB'}
+                <link href="{$wa_url}wa-content/font/ruble/arial/fontface.css" rel="stylesheet" type="text/css"/>
+            {/if}
+            {if $theme_settings.color_scheme}
+                <link href="{$wa_theme_url}{$theme_settings.color_scheme}.css" rel="stylesheet" type="text/css"/>
+            {/if}
+            <script type="text/javascript" src="{$wa_theme_url}elysium.js"></script>
+            <script type="text/javascript" src="{$wa_theme_url}js/jquery.nivo.slider.pack.js"></script>
+            {if $theme_settings.uniform}
+                <script type="text/javascript" src="{$wa_theme_url}js/jquery.uniform.min.js"></script>
+            {/if}
+            <script type="text/javascript" src="{$wa_theme_url}js/jquery.bxslider.min.js"></script>
+            {if !empty($theme_settings.tagcanvas)}
+                <script type="text/javascript" src="{$wa_theme_url}js/jquery.tagcanvas.min.js"></script>
+            {/if}
+            {if $theme_settings.type_menu == 'accordion'}
+                <script type="text/javascript" src="{$wa_theme_url}js/jquery.accordion.js"></script>
+            {elseif $theme_settings.type_menu == 'dropdown'}
+                <script type="text/javascript" src="{$wa_theme_url}js/superfish.js"></script>
+                <link href="{$wa_theme_url}css/superfish.css" rel="stylesheet" type="text/css"/>
+            {/if}
+
+            <script type="text/javascript">
+                $(function() {
+                    $.elysiumSite.init({
+                        tagcanvas: {$theme_settings.tagcanvas},
+                        cartscroll: {$theme_settings.cartscroll},
+                        upscroll: {$theme_settings.upscroll},
+                        photo_block_slider: {$theme_settings.photo_block_slider},
+                        news_block_slider: {$theme_settings.news_block_slider},
+                        type_menu: '{$theme_settings.type_menu}',
+                        shop_cart_url: '{if $wa->shop}{$wa->getUrl('shop/frontend/cart')}{/if}',
+                        uniform: {$theme_settings.uniform}
+                    });
+                });
+            </script>
+        {/if}
+
+
         <style>
             body {
                 background-image: url();
@@ -19,10 +72,7 @@
         {$wa->css()} {* links active plugins CSS *}
         <!-- js -->
         {$wa->js()} {* links active plugins JS *}
-        <script type="text/javascript">
-            var complete_functions = {};
-            var load_arr = [];
-        </script>
+
         <script>
             ajaxcart_allowed = 1;
         </script>
@@ -235,14 +285,15 @@
                 <div class="container">
                     <div id="menu-wrap" class="clearfix desktop">
                         <div id="menu-trigger">[`Information`]<i class="menu-icon icon-plus-sign-alt"></i></div>
-                            {if $wa->site->pages()}
-                                {wa_print_tree tree=$wa->site->pages() attrs = 'id="menu-custom"' elem ='<a href=":url">:name</a>' selected=ifset($page.id)}
-                            {/if}
-                    </div>
+                        {if isset($page.id)}{$page_id = $page.id}{else}{$page_id = null}    {/if}
+                        {if $wa->site->pages()}
+                            {wa_print_tree tree=$wa->site->pages() attrs = 'id="menu-custom"' elem ='<a href=":url">:name</a>' selected=$page_id}
+                        {/if}
                 </div>
             </div>
-        {/if}
-    </header>
+        </div>
+    {/if}
+</header>
 </div>
 <div class="page_wrapper_2 clearfix">
     <div id="columns" class="container">
@@ -300,8 +351,15 @@
         {/if}
     </section>
     <section class="bottom_footer">
-        &copy; {time()|wa_datetime:"Y"}
-        <a href="{$wa_url}">{$wa->accountName()}</a>
+        <span>
+            &copy; {time()|wa_datetime:"Y"}
+            <a href="{$wa_url}">{$wa->accountName()}</a>
+        </span>
+
+        <span>
+            &copy; [`Design`] <a href="http://wa-plugins.ru/">wa-plugins.ru</a>
+        </span>
+
     </section>  
 
     {if $wa->isAuthEnabled()}
@@ -366,56 +424,58 @@
 
 {/if}
 </div>
-<script type="text/javascript" src="{$wa_theme_url}js/yepnope.1.5.4-min.js"></script>
-<script type="text/javascript">
-    complete_functions['initSite'] = function() {
-        $.elysiumSite.init({
-            tagcanvas: {$theme_settings.tagcanvas},
-            cartscroll: {$theme_settings.cartscroll},
-            upscroll: {$theme_settings.upscroll},
-            photo_block_slider: {$theme_settings.photo_block_slider},
-            news_block_slider: {$theme_settings.news_block_slider},
-            type_menu: '{$theme_settings.type_menu}',
-            shop_cart_url: '{if $wa->shop}{$wa->getUrl('shop/frontend/cart')}{/if}',
-            uniform: {$theme_settings.uniform}
-        });
-    };
-    load_arr.push('{$wa_theme_url}css/bootstrap.min.css', '{$wa_theme_url}css/font.css', '{$wa_theme_url}elysium.css', '{$wa_theme_url}responsive.css', '{$wa_theme_url}css/jquery.bxslider.css');
-    {if $theme_settings.uniform}
-    load_arr.push('{$wa_theme_url}css/uniform/{$theme_settings.uniform_theme}/css/uniform.{$theme_settings.uniform_theme}.min.css');
-    {/if}
-    {if $wa->shop && $wa->shop->currency() == 'RUB'}
-    load_arr.push('{$wa_url}wa-content/font/ruble/arial/fontface.css');
-    {/if}
-    load_arr.push('{$wa_theme_url}elysium.js');
-    load_arr.push('{$wa_theme_url}js/jquery.nivo.slider.pack.js');
-    {if $theme_settings.uniform}
-    load_arr.push('{$wa_theme_url}js/jquery.uniform.min.js');
-    {/if}
-    load_arr.push('{$wa_theme_url}js/jquery.bxslider.min.js');
-    {if !empty($theme_settings.tagcanvas)}
-    load_arr.push('{$wa_theme_url}js/jquery.tagcanvas.min.js');
-    {/if}
-    {if $theme_settings.type_menu == 'accordion'}
-    load_arr.push('{$wa_theme_url}js/jquery.accordion.js');
-    {elseif $theme_settings.type_menu == 'dropdown'}
-    load_arr.push('{$wa_theme_url}js/superfish.js');
-    load_arr.push('{$wa_theme_url}css/superfish.css');
-    {/if}
-    {if $theme_settings.color_scheme}
-    load_arr.push('{$wa_theme_url}{$theme_settings.color_scheme}.css');
-    {/if}
-</script>
-<script type="text/javascript">
-    yepnope({
-        load: load_arr,
-        complete: function() {
-            for (var i in complete_functions) {
-                complete_functions[i]();
+{if $theme_settings.use_yepnope}
+    <script type="text/javascript" src="{$wa_theme_url}js/yepnope.1.5.4-min.js"></script>
+    <script type="text/javascript">
+        complete_functions['initSite'] = function() {
+            $.elysiumSite.init({
+                tagcanvas: {$theme_settings.tagcanvas},
+                cartscroll: {$theme_settings.cartscroll},
+                upscroll: {$theme_settings.upscroll},
+                photo_block_slider: {$theme_settings.photo_block_slider},
+                news_block_slider: {$theme_settings.news_block_slider},
+                type_menu: '{$theme_settings.type_menu}',
+                shop_cart_url: '{if $wa->shop}{$wa->getUrl('shop/frontend/cart')}{/if}',
+                uniform: {$theme_settings.uniform}
+            });
+        };
+        load_arr.push('{$wa_theme_url}css/bootstrap.min.css', '{$wa_theme_url}css/font.css', '{$wa_theme_url}elysium.css', '{$wa_theme_url}responsive.css', '{$wa_theme_url}css/jquery.bxslider.css');
+        {if $theme_settings.uniform}
+        load_arr.push('{$wa_theme_url}css/uniform/{$theme_settings.uniform_theme}/css/uniform.{$theme_settings.uniform_theme}.min.css');
+        {/if}
+        {if $wa->shop && $wa->shop->currency() == 'RUB'}
+        load_arr.push('{$wa_url}wa-content/font/ruble/arial/fontface.css');
+        {/if}
+        load_arr.push('{$wa_theme_url}elysium.js');
+        load_arr.push('{$wa_theme_url}js/jquery.nivo.slider.pack.js');
+        {if $theme_settings.uniform}
+        load_arr.push('{$wa_theme_url}js/jquery.uniform.min.js');
+        {/if}
+        load_arr.push('{$wa_theme_url}js/jquery.bxslider.min.js');
+        {if !empty($theme_settings.tagcanvas)}
+        load_arr.push('{$wa_theme_url}js/jquery.tagcanvas.min.js');
+        {/if}
+        {if $theme_settings.type_menu == 'accordion'}
+        load_arr.push('{$wa_theme_url}js/jquery.accordion.js');
+        {elseif $theme_settings.type_menu == 'dropdown'}
+        load_arr.push('{$wa_theme_url}js/superfish.js');
+        load_arr.push('{$wa_theme_url}css/superfish.css');
+        {/if}
+        {if $theme_settings.color_scheme}
+        load_arr.push('{$wa_theme_url}{$theme_settings.color_scheme}.css');
+        {/if}
+    </script>
+    <script type="text/javascript">
+        yepnope({
+            load: load_arr,
+            complete: function() {
+                for (var i in complete_functions) {
+                    complete_functions[i]();
+                }
             }
-        }
-    });
-</script>   
+        });
+    </script> 
+{/if}
 {if $theme_settings.queryLoader2}
     <script type="text/javascript" src="{$wa_theme_url}js/jquery.queryloader2.min.js"></script>
     <script  type="text/javascript">

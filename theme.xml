@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE theme PUBLIC "wa-app-theme" "http://www.webasyst.com/wa-content/xml/wa-app-theme.dtd">
-<theme id="elysium" system="0" vendor="webasyst" author="Webasyst" app="site" version="1.1.0">
+<theme id="elysium" system="0" vendor="985310" author="wa-plugins.ru" app="site" version="1.0.0">
     <name locale="en_US">Elysium</name>
-    <name locale="ru_RU">Elysium</name>
+    <name locale="ru_RU">Элизиум</name>
     <description locale="ru_RU">Семейство адаптивных тем дизайна.</description>
     <files>
         <file path="index.html">
@@ -50,12 +50,6 @@
             <description locale="ru_RU">JS</description>
         </file>
     </files>
-    <about locale="en_US">
-<![CDATA[
-<p><b>CUSTOM</b> is a universal design theme family for all basic Webasyst apps: Site, Blog, Photos, Shop-Script, and others. The parent (main) theme of the family, which includes the basic set of CSS rules and the common layout template index.html, is the CUSTOM (i.e. this) theme for the Site application. All CUSTOM design themes used in other applications (e.g., Blog or Photos) utilize common CSS rules and file index.html of the parent (main) theme.</p>
-<p>CUSTOM design themes are optimized for all modern web browsers, including iOS and Android based mobile devices.</p>
-]]>
-    </about>
     <settings>
         <setting var="logo" control_type="image">
             <value>img/logo.png</value>
@@ -194,7 +188,7 @@
                     <name locale="ru_RU">Приложение «Фото»</name>
                 </option>
             </options>
-            <value>shop</value>
+            <value>photos</value>
             <name locale="en_US">Source for block «Tags»</name>
             <name locale="ru_RU">Источник для блока «Теги»</name>
         </setting>
@@ -244,10 +238,10 @@
         
         
         
-        <setting var="override_color" control_type="checkbox">
+        <setting var="use_yepnope" control_type="checkbox">
             <value>1</value>
-            <name locale="en_US">Dimming the screen and display the progress of the download page</name>
-            <name locale="ru_RU">Затемнение экрана и отображение хода загрузки страницы</name>
+            <name locale="en_US">Asynchronous loading of CSS and JS scripts. Accelerates page loading</name>
+            <name locale="ru_RU">Асинхронная загрузка цсс и жс скриптов. Ускоряет загрузку страницы</name>
         </setting>
         
         <setting var="uniform" control_type="checkbox">
@@ -396,6 +390,10 @@
         <locale>
             <msgid>Tel</msgid>
             <msgstr locale="ru_RU">Тел</msgstr>
+        </locale> 
+        <locale>
+            <msgid>Design</msgid>
+            <msgstr locale="ru_RU">Дизайн</msgstr>
         </locale>        
         
         

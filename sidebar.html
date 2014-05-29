@@ -5,20 +5,35 @@
 {/if}
 
 {if !empty($filters)}  
-    <script type="text/javascript">
-        {if !empty($theme_settings.filter_slider)}
-        load_arr.push('{$wa_url}wa-content/css/jquery-ui/base/jquery.ui.theme.css');
-        load_arr.push('{$wa_url}wa-content/css/jquery-ui/base/jquery.ui.slider.css');
-        load_arr.push('{$wa_url}wa-content/js/jquery-ui/jquery.ui.core.min.js');
-        load_arr.push('{$wa_url}wa-content/js/jquery-ui/jquery.ui.widget.min.js');
-        load_arr.push('{$wa_url}wa-content/js/jquery-ui/jquery.ui.mouse.min.js');
-        load_arr.push('{$wa_url}wa-content/js/jquery-ui/jquery.ui.slider.min.js');
+    {if !empty($theme_settings.filter_slider)}
+        {if $theme_settings.use_yepnope}
+            <script type="text/javascript">
+                load_arr.push('{$wa_url}wa-content/css/jquery-ui/base/jquery.ui.theme.css');
+                load_arr.push('{$wa_url}wa-content/css/jquery-ui/base/jquery.ui.slider.css');
+                load_arr.push('{$wa_url}wa-content/js/jquery-ui/jquery.ui.core.min.js');
+                load_arr.push('{$wa_url}wa-content/js/jquery-ui/jquery.ui.widget.min.js');
+                load_arr.push('{$wa_url}wa-content/js/jquery-ui/jquery.ui.mouse.min.js');
+                load_arr.push('{$wa_url}wa-content/js/jquery-ui/jquery.ui.slider.min.js');
+                complete_functions['initFilterSlider'] = function() {
+                    $.elysiumShop.initFilterSlider();
+                };
+            </script>
+        {else}
+            <link href="{$wa_url}wa-content/css/jquery-ui/base/jquery.ui.theme.css" rel="stylesheet" type="text/css"/>
+            <link href="{$wa_url}wa-content/css/jquery-ui/base/jquery.ui.slider.css" rel="stylesheet" type="text/css"/>
+            <script type="text/javascript" src="{$wa_url}wa-content/js/jquery-ui/jquery.ui.core.min.js"></script>
+            <script type="text/javascript" src="{$wa_url}wa-content/js/jquery-ui/jquery.ui.widget.min.js"></script>
+            <script type="text/javascript" src="{$wa_url}wa-content/js/jquery-ui/jquery.ui.mouse.min.js"></script>
+            <script type="text/javascript" src="{$wa_url}wa-content/js/jquery-ui/jquery.ui.slider.min.js"></script>
+            <script type="text/javascript">
+                $(function() {
+                    $.elysiumShop.initFilterSlider();
+                });
+            </script>
         {/if}
 
-        complete_functions['initFilterSlider'] = function() {
-            $.elysiumShop.initFilterSlider();
-        };
-    </script>
+    {/if}
+
 
     <section id="layered_block_left" class="block column_box">
         <h3 class="toggle"><span>[`Selection of parameters`]</span></h3>
@@ -89,6 +104,60 @@
     </section>
 {/if} 
 
+
+{if $wa->photos && $wa_app == 'photos'}
+    <section id="layered_block_left" class="block column_box">
+        <h3 class="toggle"><span>[`Photos`]</span></h3>
+        <div class="block_content">
+            <ul class="{$menu_class}">
+                <li {if $wa->currentUrl() == $wa_app_url} class="selected"{/if}>
+                    <a href="{$wa_app_url}">[`Photostream`]</a>
+                </li>
+                <li {if $wa->param('action') neq 'page' && $wa->param('action') neq 'album' && $wa->param('hash') == 'favorites'} class="selected"{/if}>
+                    <a href="{$wa_app_url}favorites/">[`Editors’ choice`]</a>
+                </li>
+
+                <!-- plugins -->
+                {* @event frontend_sidebar.%plugin_id%.menu *}
+                {foreach $frontend_sidebar as $plugin_id => $item}
+                    {if !empty($item.menu)}<li>{$item.menu}</li>{/if}
+                    {/foreach}
+
+                <!-- pages -->
+                {* static info page list *}
+                {if $photos_pages = $wa->photos->pages()}
+                    {$page_id = $wa->param('page_id')}
+                    {foreach $photos_pages as $p}
+                        <li {if $page_id eq $p.id} class="selected"{/if}><a href="{$p.url}" title="{$p.title}">{$p.name}</a></li>
+                        {/foreach}
+                    {/if}
+
+
+                <!-- albums -->
+                {if $albums = $wa->photos->albums(0)}
+                    <li class="parent">
+                        <a href="#">[`Albums`]</a>
+                        {wa_print_tree tree=$albums  elem ='<a href=":url">:name</a>'}
+
+                    </li>
+                {/if}
+
+                <!-- more plugins -->
+                {* @event frontend_sidebar.%plugin_id%.section *}
+    {capture name="more"}{strip}{foreach $frontend_sidebar as $plugin_id => $item}{if !empty($item.section)}<hr><div class="block">{$item.section}</div>{/if}{/foreach}{/strip}{/capture}
+
+    {if $smarty.capture.more ne ""}
+        <li class="parent">
+            <a href="#" class="inline-link"><b><i>[`More`]</i></b><i class="icon10 darr"></i></a>
+            <div class="popup">
+
+            </div>
+        </li>
+    {/if}
+</ul>
+</div>
+</section>
+{/if}
 
 {if isset($category.id)}{$selected_category=$category.id}{else}{$selected_category=null}{/if}
 {if isset($page.id)}{$selected_page=$page.id}{else}{$selected_page=null}{/if}
@@ -203,7 +272,7 @@
     </section>
 {elseif $wa->photos && $wa->photos->tags() && $theme_settings.source_tag_cloud == 'photos'}
     <section id="tags_block_left" class="block tags_block column_box">
-        <h4><span>Тэги</span><i class="column_icon_toggle icon-plus-sign"></i></h4>
+        <h4><span>[`Tags`]</span><i class="column_icon_toggle icon-plus-sign"></i></h4>
         <div class="block_content toggle_content">
             {if !empty($theme_settings.tagcanvas)}
                 <div id="tag-cloud-canvas">

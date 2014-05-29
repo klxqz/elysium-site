@@ -835,7 +835,7 @@ form.pagination
 	font-weight: 400;
 	line-height: 1.2em;
 	text-decoration: none;
-	text-transform: capitalize;
+	
 }
 #cms a.header_links_delivery,#contact a.header_links_contact,#header_links li a:hover,#sitemap a.header_links_sitemap,#stores a.header_links_store,body#index a.header_links_home
 {
@@ -1238,7 +1238,7 @@ form.pagination
 	line-height: 18px;
 	margin: 0 0 30px;
 	position: relative;
-	text-transform: capitalize;
+	
 }
 #layered_block_left h3 span,.center_column .block h4 span,.column .block h4 span,h1 span
 {
@@ -2308,7 +2308,7 @@ footer .block h4
 	line-height: 18px;
 	margin: 36px 0 12px;
 	padding: 0 0 3px;
-	text-transform: capitalize;
+	
 }
 footer .block h4 i
 {
