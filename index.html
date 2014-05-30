@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru">
+<html xmlns="http://www.w3.org/1999/xhtml">
     <head>        
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <title>{$wa->title()|escape}</title>
@@ -9,13 +9,14 @@
             <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=0;" />
         {/if}
         {if !empty($canonical)}<link rel="canonical" href="{$canonical}"/>{/if}
-        <script type="text/javascript" src="{$wa_url}wa-content/js/jquery/jquery-1.8.2.min.js"></script>
+        {if empty($theme_settings.use_yepnope_jquery)}
+            <script type="text/javascript" src="{$wa_url}wa-content/js/jquery/jquery-1.8.2.min.js"></script>
+        {/if}
         {if $theme_settings.use_yepnope}
             <script type="text/javascript">
                 var complete_functions = {};
-                var load_arr = [];
-            </script>
-        {else}
+                var load_arr = [{if $theme_settings.use_yepnope_jquery}'{$wa_url}wa-content/js/jquery/jquery-1.8.2.min.js'{/if}];</script>
+            {else}
             <link href="{$wa_theme_url}css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
             <link href="{$wa_theme_url}css/font.css" rel="stylesheet" type="text/css"/>
             <link href="{$wa_theme_url}elysium.css" rel="stylesheet" type="text/css"/>
@@ -47,42 +48,32 @@
             {/if}
 
             <script type="text/javascript">
-                $(function() {
-                    $.elysiumSite.init({
-                        tagcanvas: {$theme_settings.tagcanvas},
-                        cartscroll: {$theme_settings.cartscroll},
-                        upscroll: {$theme_settings.upscroll},
-                        photo_block_slider: {$theme_settings.photo_block_slider},
-                        news_block_slider: {$theme_settings.news_block_slider},
-                        type_menu: '{$theme_settings.type_menu}',
-                        shop_cart_url: '{if $wa->shop}{$wa->getUrl('shop/frontend/cart')}{/if}',
-                        uniform: {$theme_settings.uniform}
-                    });
-                });
+                        $(function() {
+                            $.elysiumSite.init({
+                                left_fixed_pluso: {$theme_settings.left_fixed_pluso},
+                                tagcanvas: {$theme_settings.tagcanvas},
+                                cartscroll: {$theme_settings.cartscroll},
+                                upscroll: {$theme_settings.upscroll},
+                                photo_block_slider: {$theme_settings.photo_block_slider},
+                                news_block_slider: {$theme_settings.news_block_slider},
+                                type_menu: '{$theme_settings.type_menu}',
+                                shop_cart_url: '{if $wa->shop}{$wa->getUrl('shop/frontend/cart')}{/if}',
+                                uniform: {$theme_settings.uniform}
+                            });
+                        });
             </script>
         {/if}
-
-
-        <style>
-            body {
-                background-image: url();
-            }
-        </style>
         <!-- css -->
         {$wa->css()} {* links active plugins CSS *}
         <!-- js -->
         {$wa->js()} {* links active plugins JS *}
-
-        <script>
-            ajaxcart_allowed = 1;
-        </script>
-
         {include file="`$wa_active_theme_path`/head.html" inline}
 
         {$wa->headJs()} {* links Google Analytics tracking code and current site's custom JS (Site app) *}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
         <meta name="apple-mobile-web-app-capable" content="yes"/>
         <script>
+            ajaxcart_allowed = 1;
             if (navigator.userAgent.match(/Android/i)) {
                 var viewport = document.querySelector("meta[name=viewport]");
                 viewport.setAttribute('content', 'initial-scale=1.0,maximum-scale=1.0,user-scalable=0,width=device-width,height=device-height');
@@ -102,7 +93,7 @@
             <header id="header">
                 <div id="header_right" class="container">
                     <a id="header_logo" href="{$wa_url}"  title="[`To home`]">
-                        <img class="logo" src="{$wa_theme_url}{$theme_settings.logo}" />
+                        <img class="logo" src="{$wa_theme_url}{$theme_settings.logo}" alt="[`To home`]" />
                     </a>
                     {if isset($currencies) && count($currencies) > 1}    
                         <section id="currencies_block_top" class="header-box header-button">
@@ -398,15 +389,33 @@
                     </div>
                 </li>
             {/if}
+            
+            {if $wa->shop && $wa->shop->settings('email')}
+                <li class="htmlcontent-item">
+                    <div class="item-html">
+                        <h3>[`E-mail`]: {$wa->shop->settings('email')}</h3>
+                    </div>
+                </li>
+            {elseif !empty($theme_settings.email)}
+                <li class="htmlcontent-item">
+                    <div class="item-html">
+                        <h3>[`E-mail`]: {$theme_settings.email}</h3>
+                    </div>
+                </li>
+            {/if}
+
         </ul>
     </div>
     <section class="blocksocial">
         <ul>
             {if !empty($theme_settings.footer_facebook)}
-                <li class="facebook"><a href="{$theme_settings.footer_facebook}" ><i class="icon-facebook"></i></a></li>
+                <li class="facebook"><a href="{$theme_settings.footer_facebook}" title="[`facebook`]" ><i class="icon-facebook"></i></a></li>
                     {/if}
                     {if !empty($theme_settings.footer_twitter)}
-                <li class="twitter"><a href="{$theme_settings.footer_twitter}" ><i class="icon-twitter"></i></a></li>
+                <li class="twitter"><a href="{$theme_settings.footer_twitter}" title="[`twitter`]" ><i class="icon-twitter"></i></a></li>
+                    {/if}
+                    {if !empty($theme_settings.footer_vk)}
+                <li class="vk"><a href="{$theme_settings.footer_vk}" title="[`Vkontakte`]" ><i class="icon-vk"></i></a></li>
                     {/if}
                     {if $wa->blog}
                 <!-- subscription links -->
@@ -429,7 +438,9 @@
     <script type="text/javascript">
         complete_functions['initSite'] = function() {
             $.elysiumSite.init({
+                left_fixed_pluso: {$theme_settings.left_fixed_pluso},
                 tagcanvas: {$theme_settings.tagcanvas},
+                tagcanvas_color: '{$theme_settings.tagcanvas_color}',
                 cartscroll: {$theme_settings.cartscroll},
                 upscroll: {$theme_settings.upscroll},
                 photo_block_slider: {$theme_settings.photo_block_slider},
@@ -477,12 +488,15 @@
     </script> 
 {/if}
 {if $theme_settings.queryLoader2}
+    <style>
+        body { background-image: url(); }
+    </style>
     <script type="text/javascript" src="{$wa_theme_url}js/jquery.queryloader2.min.js"></script>
     <script  type="text/javascript">
         $(function() {
             $("body").queryLoader2({
-                barColor: "#FFF",
-                backgroundColor: "#000",
+                barColor: "{$theme_settings.queryLoader2barColor}",
+                backgroundColor: "{$theme_settings.queryLoader2backgroundColor}",
                 percentage: true,
                 barHeight: 1,
                 completeAnimation: "grow",

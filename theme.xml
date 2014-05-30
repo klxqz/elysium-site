@@ -6,20 +6,24 @@
     <description locale="ru_RU">Семейство адаптивных тем дизайна.</description>
     <files>
         <file path="index.html">
-            <description locale="en_US">Core layout of the CUSTOM theme family</description>
-            <description locale="ru_RU">Основной макет тем дизайна семейства CUSTOM</description>
+            <description locale="en_US">Core layout of the Elysium theme family</description>
+            <description locale="ru_RU">Основной макет тем дизайна семейства Элизиум</description>
         </file>
-        <file path="custom.css">
-            <description locale="en_US">Core CSS of the CUSTOM theme family</description>
-            <description locale="ru_RU">Основной файл CSS-стилей семейства тем дизайна CUSTOM</description>
+        <file path="elysium.css">
+            <description locale="en_US">Core CSS of the Elysium theme family</description>
+            <description locale="ru_RU">Основной файл CSS-стилей семейства тем дизайна Элизиум</description>
         </file>
-        <file path="custom.mobile.css">
+        <file path="responsive.css">
             <description locale="en_US">Additional CSS for multi-touch mobile devices</description>
             <description locale="ru_RU">Дополнительный CSS для мобильных устройств</description>
         </file>
         <file path="content.html" custom="0">
             <description locale="en_US">Main layout for the Site app content</description>
             <description locale="en_US">Основной вывод приложения «Сайт»</description>
+        </file>
+        <file path="sidebar.html" custom="0">
+            <description locale="en_US">Sidebar</description>
+            <description locale="en_US">Сайдбар</description>
         </file>
         <file path="head.html" custom="0">
             <description locale="en_US">Site app's &lt;head&gt; instructions</description>
@@ -45,9 +49,29 @@
             <description locale="en_US">404 and other errors</description>
             <description locale="ru_RU">404 и другие ошибки</description>
         </file>
-        <file path="custom.js" custom="0">
+        <file path="elysium.js" custom="0">
             <description locale="en_US">JS</description>
             <description locale="ru_RU">JS</description>
+        </file>
+        <file path="blue.css">
+            <description locale="en_US">CSS styles «blue» theme</description>
+            <description locale="ru_RU">CSS стили темы «Синий»</description>
+        </file>
+        <file path="green.css">
+            <description locale="en_US">CSS styles «green» theme</description>
+            <description locale="ru_RU">CSS стили темы «Зеленый»</description>
+        </file>
+        <file path="orange.css">
+            <description locale="en_US">CSS styles «orange» theme</description>
+            <description locale="ru_RU">CSS стили темы «Оранжевый»</description>
+        </file>
+        <file path="purple.css">
+            <description locale="en_US">CSS styles «purple» theme</description>
+            <description locale="ru_RU">CSS стили темы «Фиолетовый»</description>
+        </file>
+        <file path="red.css">
+            <description locale="en_US">CSS styles «red» theme</description>
+            <description locale="ru_RU">CSS стили темы «Красный»</description>
         </file>
     </files>
     <settings>
@@ -62,15 +86,26 @@
             <name locale="en_US">Phone</name>
             <name locale="ru_RU">Телефон. Если у Вас установлено приложение «Магазин» вместо этого номера будет выводиться номер из настроек магазина.</name>
         </setting>
+        
+        <setting var="email" control_type="text">
+            <value>info@myshop.ru</value>
+            <name locale="en_US">Email</name>
+            <name locale="ru_RU">Email. Если у Вас установлено приложение «Магазин» вместо этого email будет выводиться значение из настроек магазина.</name>
+        </setting>
         <setting var="footer_facebook" control_type="text">
-            <value>#</value>
+            <value>https://www.facebook.com/</value>
             <name locale="en_US">Link to facebook</name>
             <name locale="ru_RU">Ссылка на facebook</name>
         </setting>
         <setting var="footer_twitter" control_type="text">
-            <value>#</value>
+            <value>http://twiter.ru/</value>
             <name locale="en_US">Link to twitter</name>
             <name locale="ru_RU">Ссылка на twitter</name>
+        </setting>
+        <setting var="footer_vk" control_type="text">
+            <value>http://vk.com/</value>
+            <name locale="en_US">Link to vk</name>
+            <name locale="ru_RU">Ссылка на ВКонтакте</name>
         </setting>
         <setting var="source_main_menu" control_type="select">
             <options>
@@ -198,6 +233,12 @@
             <name locale="en_US">3D tags</name>
             <name locale="ru_RU">3D облако тегов</name>
         </setting>
+        <setting var="tagcanvas_color" control_type="text">
+            <value>#000000</value>
+            <name locale="en_US">3D tags color</name>
+            <name locale="ru_RU">Цвет 3D облака тегов</name>
+        </setting>
+        
         <setting var="cartscroll" control_type="checkbox">
             <value>1</value>
             <name locale="en_US">Floating cart</name>
@@ -225,23 +266,42 @@
                     <name locale="ru_RU">Меню аккордеон</name>
                 </option>
             </options>
-            <value>accordion</value>
+            <value>dropdown</value>
             <name locale="en_US">Menu type</name>
             <name locale="ru_RU">Тип меню</name>
         </setting>
         
         <setting var="queryLoader2" control_type="checkbox">
             <value>1</value>
-            <name locale="en_US">Dimming the screen and display the progress of the download page</name>
-            <name locale="ru_RU">Затемнение экрана и отображение хода загрузки страницы</name>
+            <name locale="en_US">Dimming the screen and display the progress of the download page(Preloader)</name>
+            <name locale="ru_RU">Затемнение экрана и отображение хода загрузки страницы(Preloader)</name>
         </setting>
-        
-        
+        <setting var="queryLoader2backgroundColor" control_type="text">
+            <value>#000000</value>
+            <name locale="en_US">(Preloader)background color</name>
+            <name locale="ru_RU">(Preloader)Цвет фона</name>
+        </setting>
+        <setting var="queryLoader2backgroundColor" control_type="text">
+            <value>#000000</value>
+            <name locale="en_US">(Preloader)background color</name>
+            <name locale="ru_RU">(Preloader)Цвет фона</name>
+        </setting> 
+        <setting var="queryLoader2barColor" control_type="text">
+            <value>#FFFFFF</value>
+            <name locale="en_US">(Preloader)bar color</name>
+            <name locale="ru_RU">(Preloader)Цвет загрузки</name>
+        </setting>    
         
         <setting var="use_yepnope" control_type="checkbox">
             <value>1</value>
             <name locale="en_US">Asynchronous loading of CSS and JS scripts. Accelerates page loading</name>
-            <name locale="ru_RU">Асинхронная загрузка цсс и жс скриптов. Ускоряет загрузку страницы</name>
+            <name locale="ru_RU">Асинхронная загрузка css и js скриптов. Ускоряет загрузку страницы</name>
+        </setting>
+        
+        <setting var="use_yepnope_jquery" control_type="checkbox">
+            <value>0</value>
+            <name locale="en_US">Asynchronous loading of jquery. Accelerates page loading(not recommended.)</name>
+            <name locale="ru_RU">Асинхронная загрузка jquery. Ускоряет загрузку страницы(не рекомендуется)</name>
         </setting>
         
         <setting var="uniform" control_type="checkbox">
@@ -292,7 +352,18 @@
                     <name locale="en_US">Blue</name>
                     <name locale="ru_RU">Голубой</name>
                 </option>
-                
+                <option value="red">
+                    <name locale="en_US">Red</name>
+                    <name locale="ru_RU">Красный</name>
+                </option>
+                <option value="purple">
+                    <name locale="en_US">Purple</name>
+                    <name locale="ru_RU">Фиолетовый</name>
+                </option>
+                <option value="orange">
+                    <name locale="en_US">Orange</name>
+                    <name locale="ru_RU">Оранжевый</name>
+                </option>
             </options>
         </setting>
         
@@ -392,8 +463,24 @@
             <msgstr locale="ru_RU">Тел</msgstr>
         </locale> 
         <locale>
+            <msgid>E-mail</msgid>
+            <msgstr locale="ru_RU">E-mail</msgstr>
+        </locale> 
+        <locale>
             <msgid>Design</msgid>
             <msgstr locale="ru_RU">Дизайн</msgstr>
+        </locale>   
+        <locale>
+            <msgid>Vkontakte</msgid>
+            <msgstr locale="ru_RU">Вконтакте</msgstr>
+        </locale> 
+        <locale>
+            <msgid>facebook</msgid>
+            <msgstr locale="ru_RU">facebook</msgstr>
+        </locale>
+        <locale>
+            <msgid>twitter</msgid>
+            <msgstr locale="ru_RU">twitter</msgstr>
         </locale>        
         
         

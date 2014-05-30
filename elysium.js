@@ -146,7 +146,7 @@
                 return false;
             }
             if ($('#tag-cloud-canvas #canvas').tagcanvas({
-                textColour: $('#tag-cloud a').css('color'),
+                textColour: this.options.tagcanvas_color,
                 outlineColour: '#000',
                 outlineMethod: "colour",
                 outlineThickness: 1,
@@ -160,7 +160,9 @@
             }
         },
         initPluso: function() {
-
+            if (!this.options.left_fixed_pluso) {
+                return false;
+            }
             if (window.pluso)
                 if (typeof window.pluso.start == "function")
                     return;
