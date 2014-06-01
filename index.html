@@ -389,7 +389,7 @@
                     </div>
                 </li>
             {/if}
-            
+
             {if $wa->shop && $wa->shop->settings('email')}
                 <li class="htmlcontent-item">
                     <div class="item-html">
@@ -410,20 +410,26 @@
         <ul>
             {if !empty($theme_settings.footer_facebook)}
                 <li class="facebook"><a href="{$theme_settings.footer_facebook}" title="[`facebook`]" ><i class="icon-facebook"></i></a></li>
-                    {/if}
-                    {if !empty($theme_settings.footer_twitter)}
+
+            {/if}
+
+            {if !empty($theme_settings.footer_twitter)}
                 <li class="twitter"><a href="{$theme_settings.footer_twitter}" title="[`twitter`]" ><i class="icon-twitter"></i></a></li>
-                    {/if}
-                    {if !empty($theme_settings.footer_vk)}
+
+            {/if}
+
+            {if !empty($theme_settings.footer_vk)}
                 <li class="vk"><a href="{$theme_settings.footer_vk}" title="[`Vkontakte`]" ><i class="icon-vk"></i></a></li>
-                    {/if}
-                    {if $wa->blog}
-                <!-- subscription links -->
+
+            {/if}
+
+            {if $wa->blog}
                 {$rss = $wa->blog->rssUrl()}
                 {if $rss}
-                    <li class="rss"><a href="{$rss}" title="[s`Subscribe`]"><i class="icon-rss"></i></a></li> 
-                        {/if}
-                    {/if}
+                    <li class="rss"><a href="{$rss}" title="[s`Subscribe`]"><i class="icon-rss"></i></a></li>
+
+                {/if}
+            {/if}
         </ul>
     </section>
 </div>
