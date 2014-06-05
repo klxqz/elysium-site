@@ -8,3 +8,4 @@ a.btn_add_cart:hover,input[type=submit]:hover{background:#3D7336;background:line
 .accordion-tabs li.tab-head-cont a.is-active{border-top-color:#40CB2E;}
 .accordion-tabs li.tab-head-cont a.is-active{border-left-color:#40CB2E;}
 .sf-menu li.selected, .sf-menu li.sfHover, .sf-menu li:hover{background:#40CB2E;}
+#header #header_logo img.logo{background:#40CB2E;}

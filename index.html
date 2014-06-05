@@ -52,6 +52,7 @@
                             $.elysiumSite.init({
                                 left_fixed_pluso: {$theme_settings.left_fixed_pluso},
                                 tagcanvas: {$theme_settings.tagcanvas},
+                                tagcanvas_color: '{$theme_settings.tagcanvas_color}',
                                 cartscroll: {$theme_settings.cartscroll},
                                 upscroll: {$theme_settings.upscroll},
                                 photo_block_slider: {$theme_settings.photo_block_slider},
@@ -318,15 +319,15 @@
     <footer id="footer" class="container">
         <div class="row modules">
             {if $wa->shop}
-                <section class="col-sm-3 block block_category_footer">
+                <section class="block col-sm-3">
                     <h4>[`Catalog`]<i class="icon-plus-sign"></i></h4>
                     <!-- category tree -->
             {if isset($category)}{$selected_category=$category.id}{else}{$selected_category=null}{/if}
-            {wa_print_tree tree=$wa->shop->categories(0, 0, true) class="list-footer" selected=$selected_category unfolded=false  elem ='<a href=":url" title=":name">:name</a>'}
+            {wa_print_tree tree=$wa->shop->categories(0, 0, true) class="list-footer toggle_content" selected=$selected_category unfolded=false  elem ='<a href=":url" title=":name">:name</a>'}
         </section>
     {/if}
-    <section class="block blockcms_footer col-sm-3">
-        <h4 class="toggle">[`Information`]<i class="icon-plus-sign"></i></h4>
+    <section class="block col-sm-3">
+        <h4>[`Information`]<i class="icon-plus-sign"></i></h4>
             {if $wa->shop && $theme_settings.source_footer_info == 'shop_pages' && $wa->shop->pages()}
             <ul class="list-footer toggle_content clearfix">
                 {foreach $wa->shop->pages() as $page}
@@ -354,17 +355,18 @@
     </section>  
 
     {if $wa->isAuthEnabled()}
-        <section class="block blockmyaccountfooter col-sm-3">
+        <section class="block  col-sm-3">
             <h4>[`My Account`]<i class="icon-plus-sign"></i></h4>
             <ul class="list-footer toggle_content clearfix">
+                {if $wa->shop}
+                <li><a href="{$wa->getUrl('shop/frontend/cart')}">[`View my cart`]</a></li>
+                {/if}
                 {if $wa->user()->isAuth()}
                     {if $wa->shop}
                         <li><a href="{$wa->getUrl('shop/frontend/my')}">[s`My account`]</a></li>
                         <li><a href="{$wa->getUrl('shop/frontend/myOrders')}" >[`My orders`]</a></li>
                         {if shopAffiliate::isEnabled()}<li><a href="{$wa->getUrl('/frontend/myAffiliate')}">[`Affiliate program`]</a></li>{/if}
-                        {else}
-                        <li>{$wa->user('name')}</li>
-                        {/if}
+                    {/if}
                     <li><a href="?logout"  title="[s`Log out`]">[s`Log out`]</a></li>
                     {else}
                     <li><a href="{$wa->loginUrl()}">[s`Log in`]</a></li>
@@ -463,6 +465,9 @@
         {if $wa->shop && $wa->shop->currency() == 'RUB'}
         load_arr.push('{$wa_url}wa-content/font/ruble/arial/fontface.css');
         {/if}
+        {if $theme_settings.color_scheme}
+        load_arr.push('{$wa_theme_url}{$theme_settings.color_scheme}.css');
+        {/if}
         load_arr.push('{$wa_theme_url}elysium.js');
         load_arr.push('{$wa_theme_url}js/jquery.nivo.slider.pack.js');
         {if $theme_settings.uniform}
@@ -477,10 +482,7 @@
         {elseif $theme_settings.type_menu == 'dropdown'}
         load_arr.push('{$wa_theme_url}js/superfish.js');
         load_arr.push('{$wa_theme_url}css/superfish.css');
-        {/if}
-        {if $theme_settings.color_scheme}
-        load_arr.push('{$wa_theme_url}{$theme_settings.color_scheme}.css');
-        {/if}
+        {/if}     
     </script>
     <script type="text/javascript">
         yepnope({
