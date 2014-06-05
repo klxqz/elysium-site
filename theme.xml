@@ -19,15 +19,15 @@
         </file>
         <file path="content.html" custom="0">
             <description locale="en_US">Main layout for the Site app content</description>
-            <description locale="en_US">Основной вывод приложения «Сайт»</description>
+            <description locale="en_US">Основной вывод приложения "Сайт"</description>
         </file>
         <file path="sidebar.html" custom="0">
             <description locale="en_US">Sidebar</description>
             <description locale="en_US">Сайдбар</description>
         </file>
         <file path="head.html" custom="0">
-            <description locale="en_US">Site app's &lt;head&gt; instructions</description>
-            <description locale="en_US">Блок &lt;head&gt; приложения «Сайт»</description>
+            <description locale="en_US">Site app's head instructions</description>
+            <description locale="en_US">Блок head приложения "Сайт"</description>
         </file>
         <file path="page.html">
             <description locale="en_US">Static page content and navigation</description>
@@ -54,24 +54,24 @@
             <description locale="ru_RU">JS</description>
         </file>
         <file path="blue.css">
-            <description locale="en_US">CSS styles «blue» theme</description>
-            <description locale="ru_RU">CSS стили темы «Синий»</description>
+            <description locale="en_US">CSS styles "blue" theme</description>
+            <description locale="ru_RU">CSS стили темы "Синий"</description>
         </file>
         <file path="green.css">
-            <description locale="en_US">CSS styles «green» theme</description>
-            <description locale="ru_RU">CSS стили темы «Зеленый»</description>
+            <description locale="en_US">CSS styles "green" theme</description>
+            <description locale="ru_RU">CSS стили темы "Зеленый"</description>
         </file>
         <file path="orange.css">
-            <description locale="en_US">CSS styles «orange» theme</description>
-            <description locale="ru_RU">CSS стили темы «Оранжевый»</description>
+            <description locale="en_US">CSS styles "orange" theme</description>
+            <description locale="ru_RU">CSS стили темы "Оранжевый"</description>
         </file>
         <file path="purple.css">
-            <description locale="en_US">CSS styles «purple» theme</description>
-            <description locale="ru_RU">CSS стили темы «Фиолетовый»</description>
+            <description locale="en_US">CSS styles "purple" theme</description>
+            <description locale="ru_RU">CSS стили темы "Фиолетовый"</description>
         </file>
         <file path="red.css">
-            <description locale="en_US">CSS styles «red» theme</description>
-            <description locale="ru_RU">CSS стили темы «Красный»</description>
+            <description locale="en_US">CSS styles "red" theme</description>
+            <description locale="ru_RU">CSS стили темы "Красный"</description>
         </file>
     </files>
     <settings>
@@ -84,283 +84,10 @@
         <setting var="phone" control_type="text">
             <value>+7-999-999-99-99</value>
             <name locale="en_US">Phone</name>
-            <name locale="ru_RU">Телефон. Если у Вас установлено приложение «Магазин» вместо этого номера будет выводиться номер из настроек магазина.</name>
+            <name locale="ru_RU">Телефон. Если у Вас установлено приложение "Магазин" вместо этого номера будет выводиться номер из настроек магазина.</name>
         </setting>
         
-        <setting var="email" control_type="text">
-            <value>info@myshop.ru</value>
-            <name locale="en_US">Email</name>
-            <name locale="ru_RU">Email. Если у Вас установлено приложение «Магазин» вместо этого email будет выводиться значение из настроек магазина.</name>
-        </setting>
-        <setting var="footer_facebook" control_type="text">
-            <value>https://www.facebook.com/</value>
-            <name locale="en_US">Link to facebook</name>
-            <name locale="ru_RU">Ссылка на facebook</name>
-        </setting>
-        <setting var="footer_twitter" control_type="text">
-            <value>http://twiter.ru/</value>
-            <name locale="en_US">Link to twitter</name>
-            <name locale="ru_RU">Ссылка на twitter</name>
-        </setting>
-        <setting var="footer_vk" control_type="text">
-            <value>http://vk.com/</value>
-            <name locale="en_US">Link to vk</name>
-            <name locale="ru_RU">Ссылка на ВКонтакте</name>
-        </setting>
-        <setting var="source_main_menu" control_type="select">
-            <options>
-                <option value="site_pages">
-                    <name locale="en_US">Application «Site» - pages</name>
-                    <name locale="ru_RU">Приложение «Сайт» - страницы</name>
-                </option>
-                <option value="shop_pages">
-                    <name locale="en_US">Application «Shop» - pages</name>
-                    <name locale="ru_RU">Приложение «Магазин» - страницы</name>
-                </option>
-                <option value="shop_categories">
-                    <name locale="en_US">Application «Shop» - categories</name>
-                    <name locale="ru_RU">Приложение «Магазин» - категории</name>
-                </option>
-            </options>
-            <value>shop_categories</value>
-            <name locale="en_US">Source for the main top menu</name>
-            <name locale="ru_RU">Источник для главного верхнего меню</name>
-        </setting>
-        
-        <setting var="source_sidebar_menu" control_type="select">
-            <options>
-                <option value="none">
-                    <name locale="en_US">None</name>
-                    <name locale="ru_RU">Не использовать</name>
-                </option>
-                <option value="site_pages">
-                    <name locale="en_US">Application «Site» - pages</name>
-                    <name locale="ru_RU">Приложение «Сайт» - страницы</name>
-                </option>
-                <option value="shop_pages">
-                    <name locale="en_US">Application «Shop» - pages</name>
-                    <name locale="ru_RU">Приложение «Магазин» - страницы</name>
-                </option>
-                <option value="shop_categories">
-                    <name locale="en_US">Application «Shop» - categories</name>
-                    <name locale="ru_RU">Приложение «Магазин» - категории</name>
-                </option>
-            </options>
-            <value>site_pages</value>
-            <name locale="en_US">Source for sidebar menu</name>
-            <name locale="ru_RU">Источник для бокового меню</name>
-        </setting>
-        <setting var="source_footer_info" control_type="select">
-            <options>
-                <option value="site_pages">
-                    <name locale="en_US">Application «Site» - pages</name>
-                    <name locale="ru_RU">Приложение «Сайт» - страницы</name>
-                </option>
-                <option value="shop_pages">
-                    <name locale="en_US">Application «Shop» - pages</name>
-                    <name locale="ru_RU">Приложение «Магазин» - страницы</name>
-                </option>
-            </options>
-            <value>shop_pages</value>
-            <name locale="en_US">Source for block «Information» at the bottom of the page</name>
-            <name locale="ru_RU">Источник для блока «Информация» в нижней части страницы</name>
-        </setting>    
-        <setting var="show_sidebar" control_type="checkbox">
-            <value>1</value>
-            <name locale="en_US">Show sidebar(can be useful if you use only the application «Site»)</name>
-            <name locale="ru_RU">Показывать sidebar(может быть полезно, если вы используете, только приложение «Сайт»)</name>
-        </setting>
-        <setting var="show_news_block" control_type="checkbox">
-            <value>1</value>
-            <name locale="en_US">Block news.</name>
-            <name locale="ru_RU">Блок новости.</name>
-        </setting>
-        <setting var="news_block_slider" control_type="checkbox">
-            <value>1</value>
-            <name locale="en_US">Block news. Slider</name>
-            <name locale="ru_RU">Блок новости. Слайдер</name>
-        </setting>
-        <setting var="number_news" control_type="text">
-            <value>4</value>
-            <name locale="en_US">Block news. Number of news(from 1)</name>
-            <name locale="ru_RU">Блок новости. Количество новостей(число от 1)</name>
-        </setting>
-        <setting var="number_char" control_type="text">
-            <value>400</value>
-            <name locale="en_US">Block news. Number of characters in the description</name>
-            <name locale="ru_RU">Блок новости. Количество символов в описание</name>
-        </setting>
-        <setting var="show_photo_block" control_type="checkbox">
-            <value>1</value>
-            <name locale="en_US">Block photos.</name>
-            <name locale="ru_RU">Блок фото.</name>
-        </setting>
-        <setting var="photo_block_slider" control_type="checkbox">
-            <value>1</value>
-            <name locale="en_US">Block photos. Slider</name>
-            <name locale="ru_RU">Блок фото. Слайдер</name>
-        </setting>
-        <setting var="number_photos" control_type="text">
-            <value>5</value>
-            <name locale="en_US">Block photos. Number of photos(from 1)</name>
-            <name locale="ru_RU">Блок фото. Количество фотографий(число от 1)</name>
-        </setting>
-        <setting var="photo_size" control_type="text">
-            <value>200x0</value>
-            <name locale="en_US">Block photos. Photo size</name>
-            <name locale="ru_RU">Блок фото. Размер фотографии</name>
-        </setting>
-        
-        
-        <setting var="source_tag_cloud" control_type="select">
-            <options>
-                <option value="shop">
-                    <name locale="en_US">Application «Shop»</name>
-                    <name locale="ru_RU">Приложение «Магазин»</name>
-                </option>
-                <option value="photos">
-                    <name locale="en_US">Application «Photos»</name>
-                    <name locale="ru_RU">Приложение «Фото»</name>
-                </option>
-            </options>
-            <value>photos</value>
-            <name locale="en_US">Source for block «Tags»</name>
-            <name locale="ru_RU">Источник для блока «Теги»</name>
-        </setting>
 
-        <setting var="tagcanvas" control_type="checkbox">
-            <value>1</value>
-            <name locale="en_US">3D tags</name>
-            <name locale="ru_RU">3D облако тегов</name>
-        </setting>
-        <setting var="tagcanvas_color" control_type="text">
-            <value>#000000</value>
-            <name locale="en_US">3D tags color</name>
-            <name locale="ru_RU">Цвет 3D облака тегов</name>
-        </setting>
-        
-        <setting var="cartscroll" control_type="checkbox">
-            <value>1</value>
-            <name locale="en_US">Floating cart</name>
-            <name locale="ru_RU">Плавающая корзина</name>
-        </setting>
-        <setting var="upscroll" control_type="checkbox">
-            <value>1</value>
-            <name locale="en_US">Scroll up</name>
-            <name locale="ru_RU">Прокрутка вверх</name>
-        </setting>
-        <setting var="left_fixed_pluso" control_type="checkbox">
-            <value>1</value>
-            <name locale="en_US">Social sharing</name>
-            <name locale="ru_RU">Социальные кнопки</name>
-        </setting>
-        
-        <setting var="type_menu" control_type="select">
-            <options>
-                <option value="dropdown">
-                    <name locale="en_US">Dropdown menu</name>
-                    <name locale="ru_RU">Выпадающее меню</name>
-                </option>
-                <option value="accordion">
-                    <name locale="en_US">Accordion menu</name>
-                    <name locale="ru_RU">Меню аккордеон</name>
-                </option>
-            </options>
-            <value>dropdown</value>
-            <name locale="en_US">Menu type</name>
-            <name locale="ru_RU">Тип меню</name>
-        </setting>
-        
-        <setting var="queryLoader2" control_type="checkbox">
-            <value>1</value>
-            <name locale="en_US">Dimming the screen and display the progress of the download page(Preloader)</name>
-            <name locale="ru_RU">Затемнение экрана и отображение хода загрузки страницы(Preloader)</name>
-        </setting>
-        <setting var="queryLoader2backgroundColor" control_type="text">
-            <value>#000000</value>
-            <name locale="en_US">(Preloader)background color</name>
-            <name locale="ru_RU">(Preloader)Цвет фона</name>
-        </setting>
-        <setting var="queryLoader2barColor" control_type="text">
-            <value>#FFFFFF</value>
-            <name locale="en_US">(Preloader)bar color</name>
-            <name locale="ru_RU">(Preloader)Цвет загрузки</name>
-        </setting>    
-        
-        <setting var="use_yepnope" control_type="checkbox">
-            <value>1</value>
-            <name locale="en_US">Asynchronous loading of CSS and JS scripts. Accelerates page loading</name>
-            <name locale="ru_RU">Асинхронная загрузка css и js скриптов. Ускоряет загрузку страницы</name>
-        </setting>
-        
-        <setting var="use_yepnope_jquery" control_type="checkbox">
-            <value>0</value>
-            <name locale="en_US">Asynchronous loading of jquery. Accelerates page loading(not recommended.)</name>
-            <name locale="ru_RU">Асинхронная загрузка jquery. Ускоряет загрузку страницы(не рекомендуется)</name>
-        </setting>
-        
-        <setting var="uniform" control_type="checkbox">
-            <value>1</value>
-            <name locale="en_US">Use styling form elements «uniform»</name>
-            <name locale="ru_RU">Использовать стилизацию элементов форм «uniform»</name>
-        </setting>
-        
-        <setting var="uniform_theme" control_type="select">
-            <options>
-                <option value="default">
-                    <name locale="en_US">default</name>
-                    <name locale="ru_RU">default</name>
-                </option>
-                <option value="aristo">
-                    <name locale="en_US">aristo</name>
-                    <name locale="ru_RU">aristo</name>
-                </option>
-                <option value="agent">
-                    <name locale="en_US">agent</name>
-                    <name locale="ru_RU">agent</name>
-                </option>
-                <option value="jeans">
-                    <name locale="en_US">jeans</name>
-                    <name locale="ru_RU">jeans</name>
-                </option>
-                
-            </options>
-            <value>default</value>
-            <name locale="en_US">Theme «uniform»</name>
-            <name locale="ru_RU">Тема оформления «uniform»</name>
-        </setting>
-
-        <setting var="color_scheme" control_type="select">
-            <value></value>
-            <name locale="en_US">Color scheme</name>
-            <name locale="ru_RU">Цветовая схема</name>
-            <options>
-                <option value="">
-                    <name locale="en_US">Black</name>
-                    <name locale="ru_RU">Черный</name>
-                </option>
-                <option value="green">
-                    <name locale="en_US">Green</name>
-                    <name locale="ru_RU">Зеленый</name>
-                </option>
-                <option value="blue">
-                    <name locale="en_US">Blue</name>
-                    <name locale="ru_RU">Голубой</name>
-                </option>
-                <option value="red">
-                    <name locale="en_US">Red</name>
-                    <name locale="ru_RU">Красный</name>
-                </option>
-                <option value="purple">
-                    <name locale="en_US">Purple</name>
-                    <name locale="ru_RU">Фиолетовый</name>
-                </option>
-                <option value="orange">
-                    <name locale="en_US">Orange</name>
-                    <name locale="ru_RU">Оранжевый</name>
-                </option>
-            </options>
-        </setting>
         
         
     </settings>
@@ -477,8 +204,5 @@
             <msgid>twitter</msgid>
             <msgstr locale="ru_RU">twitter</msgstr>
         </locale>        
-        
-        
-
     </locales>
 </theme>
